@@ -1,0 +1,6 @@
+{
+  "name": "ABYSS Design",
+  "description": "Studio thiết kế portfolio cao cấp chuẩn quốc tế, nâng tầm định vị thương hiệu cá nhân và sáng tạo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
