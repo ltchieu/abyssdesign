@@ -7,16 +7,13 @@ import {
   faArrowUpRightFromSquare,
   faLaptopCode
 } from '@fortawesome/free-solid-svg-icons';
+import { faCommentDots } from '@fortawesome/free-regular-svg-icons';
 import { PROJECTS } from '../data/projectsData';
 import { Project } from '../types';
+import { CONTACT_DATA } from '../data/contactData';
 
-interface RecentWorkProps {
-  onSelectProject: (project: Project) => void;
-}
-
-export const RecentWork: React.FC<RecentWorkProps> = ({ onSelectProject }) => {
+export const RecentWork: React.FC = () => {
   const [selectedFilter, setSelectedFilter] = useState<'all' | 'creative' | 'architect' | 'executive'>('all');
-  const [hoveredProjectId, setHoveredProjectId] = useState<string | null>(null);
 
   const filteredProjects = PROJECTS.filter((p) => {
     if (selectedFilter === 'all') return true;
@@ -53,11 +50,11 @@ export const RecentWork: React.FC<RecentWorkProps> = ({ onSelectProject }) => {
           id="recent-work-subheading"
           className="text-[15px] sm:text-[16px] text-neutral-500 font-normal tracking-[-0.01em]"
         >
-          Trải nghiệm các bản mẫu thực tế giúp bạn hình dung portfolio tương lai của mình.
+          Khám phá các phong cách portfolio độc bản. Nhấp để liên hệ tư vấn và phát triển trực tiếp qua Zalo.
         </p>
 
         {/* Minimal Filter Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-1.5 mt-6 p-1 bg-neutral-100/80 rounded-full w-fit mx-auto border border-black/[0.04]">
+        <div className="flex flex-wrap items-center justify-center gap-1.5 mt-6 p-1 bg-neutral-100/80 rounded-full w-fit mx-auto border border-neutral-200/60">
           {(
             [
               { id: 'all', label: 'Tất cả Portfolio' },
@@ -85,28 +82,29 @@ export const RecentWork: React.FC<RecentWorkProps> = ({ onSelectProject }) => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 lg:gap-8">
         {filteredProjects.map((project) => {
           return (
-            <div
+            <a
               key={project.id}
               id={`project-card-${project.id}`}
-              onClick={() => onSelectProject(project)}
-              onMouseEnter={() => setHoveredProjectId(project.id)}
-              onMouseLeave={() => setHoveredProjectId(null)}
-              className="cursor-pointer group bg-white border border-black/[0.08] hover:border-black/20 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_12px_32px_rgba(0,0,0,0.06)] hover:-translate-y-1 flex flex-col"
+              href={CONTACT_DATA.zaloUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-white border border-neutral-200/90 hover:border-neutral-300 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_12px_32px_rgba(15,23,42,0.06)] hover:-translate-y-1 flex flex-col"
             >
               {/* Card Top Preview Box */}
-              <div className="bg-[#f5f6f8] group-hover:bg-[#eef2f8] transition-colors duration-300 h-52 sm:h-56 flex items-center justify-center relative p-6 border-b border-black/[0.04]">
+              <div className="bg-[#f5f6f8] group-hover:bg-[#eef2f8] transition-colors duration-300 h-52 sm:h-56 flex items-center justify-center relative p-6 border-b border-neutral-200/60">
                 {/* Subtle Interactive Geometric Backing Grid */}
-                <div className="absolute inset-0 bg-[radial-gradient(#00000008_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+                <div className="absolute inset-0 bg-[radial-gradient(#0f172a08_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
 
                 {/* Centered Minimalist Icon */}
-                <div className="relative z-10 w-16 h-16 rounded-2xl bg-white/70 backdrop-blur-xs border border-black/[0.04] shadow-xs flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                <div className="relative z-10 w-16 h-16 rounded-2xl bg-white/70 backdrop-blur-xs border border-neutral-200/60 shadow-xs flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                   {renderIcon(project.iconType)}
                 </div>
 
-                {/* Floating "Khám Phá" Hint on hover */}
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-200 translate-y-1 group-hover:translate-y-0 bg-white text-neutral-900 text-[11px] font-semibold px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1.5 border border-black/[0.06]">
-                  <span>Trải nghiệm Demo</span>
-                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="text-[10px] text-blue-600" />
+                {/* Floating Zalo Contact Hint on hover */}
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-200 translate-y-1 group-hover:translate-y-0 bg-white text-neutral-900 text-[11px] font-semibold px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1.5 border border-neutral-200/80">
+                  <FontAwesomeIcon icon={faCommentDots} className="text-[10px] text-blue-600" />
+                  <span>Tư vấn qua Zalo</span>
+                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="text-[9px] text-neutral-400" />
                 </div>
 
                 {/* Micro tech chips on bottom */}
@@ -129,15 +127,16 @@ export const RecentWork: React.FC<RecentWorkProps> = ({ onSelectProject }) => {
 
                 {/* Micro stats preview on hover */}
                 <div className="mt-4 pt-3 border-t border-neutral-100 flex items-center justify-between text-[12px] text-neutral-400">
-                  <span className="truncate max-w-[190px]">
+                  <span className="truncate max-w-[170px]">
                     {project.stats[0].label}: <strong className="text-neutral-800 font-medium">{project.stats[0].value}</strong>
                   </span>
                   <span className="text-blue-600 font-medium group-hover:underline flex items-center gap-1">
-                    Xem Case Study
+                    <FontAwesomeIcon icon={faCommentDots} className="text-xs" />
+                    Đặt Mẫu Này
                   </span>
                 </div>
               </div>
-            </div>
+            </a>
           );
         })}
       </div>

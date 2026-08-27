@@ -48,43 +48,19 @@ export const AbyssalLoader: React.FC<AbyssalLoaderProps> = ({ onComplete }) => {
       {/* Center Minimalist Emblem & Progress */}
       <div className="relative z-10 flex flex-col items-center">
         {/* Emblem Container with subtle shadow & corner accents */}
-        <div className="relative w-20 h-20 sm:w-24 sm:h-24 bg-white border border-black/[0.08] rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.04)] flex items-center justify-center mb-6">
+        <div className="relative w-20 h-20 sm:w-24 sm:h-24 bg-white border border-neutral-200/90 rounded-2xl shadow-[0_8px_30px_rgba(15,23,42,0.04)] flex items-center justify-center mb-6">
           {/* Subtle Corner Hologram Accents */}
           <div className="absolute top-1.5 left-1.5 w-2 h-2 border-t-2 border-l-2 border-[#00f5d4] rounded-tl-[3px]" />
           <div className="absolute top-1.5 right-1.5 w-2 h-2 border-t-2 border-r-2 border-[#0284c7] rounded-tr-[3px]" />
           <div className="absolute bottom-1.5 left-1.5 w-2 h-2 border-b-2 border-l-2 border-[#2563eb] rounded-bl-[3px]" />
           <div className="absolute bottom-1.5 right-1.5 w-2 h-2 border-b-2 border-r-2 border-[#4338ca] rounded-br-[3px]" />
 
-          {/* SVG Geometric Emblem with dynamic draw */}
-          <svg
-            viewBox="0 0 48 48"
-            className="w-12 h-12 sm:w-14 sm:h-14 fill-none stroke-[1.5]"
-          >
-            {/* Outer Triangle */}
-            <polygon
-              points="24,42 6,10 42,10"
-              className="stroke-[#00f5d4] transition-all duration-300"
-              strokeDasharray="120"
-              strokeDashoffset={120 - (progress / 100) * 120}
-            />
-            {/* Inner Triangle */}
-            <polygon
-              points="24,32 14,14 34,14"
-              className="stroke-[#0284c7] transition-all duration-300"
-              strokeDasharray="80"
-              strokeDashoffset={80 - (progress / 100) * 80}
-            />
-            {/* Center Line */}
-            <line
-              x1="24"
-              y1="14"
-              x2="24"
-              y2="32"
-              className="stroke-[#2563eb]"
-              strokeDasharray="20"
-              strokeDashoffset={20 - (progress / 100) * 20}
-            />
-          </svg>
+          {/* Official ABYSS Logo Emblem */}
+          <img
+            src="/logo_no_title.png"
+            alt="ABYSS Emblem"
+            className="w-14 h-14 sm:w-16 sm:h-16 object-contain rounded-xl bg-slate-900 border border-slate-700/60 p-1.5 shadow-md animate-pulse"
+          />
         </div>
 
         {/* Numeric Counter with Abyssal Hologram */}

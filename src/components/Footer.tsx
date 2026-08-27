@@ -21,22 +21,29 @@ export const Footer: React.FC = () => {
     <>
       <footer
         id="main-footer"
-        className="bg-[#f0f2f6] border-t border-black/[0.06] py-10 sm:py-12 px-6 sm:px-8 lg:px-12 mt-12"
+        className="bg-[#f0f2f6] border-t border-neutral-200/80 py-10 sm:py-12 px-6 sm:px-8 lg:px-12 mt-12"
       >
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
-          {/* Logo Brand */}
+          {/* Logo Brand with Official ABYSS Logo Asset */}
           <div className="flex items-center gap-3">
             <a
               id="footer-brand-logo"
               href="#"
-              className="group flex items-center gap-2 text-[18px] sm:text-[20px] font-bold tracking-tight transition-colors"
+              className="group flex items-center gap-3 transition-transform hover:scale-105"
             >
-              <span className="text-hologram font-extrabold tracking-wider">
-                ABYSS
-              </span>
-              <span className="text-neutral-900 font-semibold group-hover:text-neutral-700 transition-colors">
-                Design
-              </span>
+              <img
+                src="/logo_no_title.png"
+                alt="ABYSS Emblem"
+                className="w-9 h-9 rounded-xl object-contain bg-slate-900 p-1.5 border border-slate-700/60 shadow-xs"
+              />
+              <div className="flex flex-col">
+                <span className="text-[17px] font-bold tracking-tight text-neutral-900 leading-tight">
+                  <span className="text-hologram font-extrabold">ABYSS</span> Design
+                </span>
+                <span className="text-[11px] text-neutral-500 font-medium">
+                  Portfolio Websites. Designed to Depth.
+                </span>
+              </div>
             </a>
           </div>
 
@@ -89,7 +96,7 @@ export const Footer: React.FC = () => {
             <button
               onClick={scrollToTop}
               title="Cuộn lên đầu trang"
-              className="cursor-pointer p-2 rounded-full bg-white border border-black/[0.08] hover:bg-neutral-100 text-neutral-700 transition-all hover:-translate-y-0.5"
+              className="cursor-pointer p-2 rounded-full bg-white border border-neutral-200/80 hover:bg-neutral-100 text-neutral-700 transition-all hover:-translate-y-0.5"
             >
               <FontAwesomeIcon icon={faArrowUp} className="text-xs" />
             </button>
@@ -101,13 +108,13 @@ export const Footer: React.FC = () => {
       {legalModal && (
         <div
           id="legal-modal-overlay"
-          className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in"
+          className="fixed inset-0 z-50 bg-slate-950/50 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in"
           onClick={() => setLegalModal(null)}
         >
           <div
             id="legal-modal-content"
             onClick={(e) => e.stopPropagation()}
-            className="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-black/[0.08] relative max-h-[85vh] overflow-y-auto"
+            className="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-neutral-200/90 relative max-h-[85vh] overflow-y-auto"
           >
             <button
               onClick={() => setLegalModal(null)}
@@ -150,7 +157,7 @@ export const Footer: React.FC = () => {
             <div className="mt-6 pt-4 border-t border-neutral-100 flex justify-end">
               <button
                 onClick={() => setLegalModal(null)}
-                className="cursor-pointer px-5 py-2 rounded-full bg-neutral-900 text-white text-xs font-semibold hover:bg-black transition-colors"
+                className="cursor-pointer px-5 py-2 rounded-full bg-slate-900 text-white text-xs font-semibold hover:bg-slate-800 transition-colors"
               >
                 Đã hiểu
               </button>

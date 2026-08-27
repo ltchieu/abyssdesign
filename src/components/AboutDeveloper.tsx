@@ -22,16 +22,14 @@ import {
   faCss3Alt,
   faGitAlt
 } from '@fortawesome/free-brands-svg-icons';
+import { faCommentDots } from '@fortawesome/free-regular-svg-icons';
 import { DEVELOPER_DATA } from '../data/developerData';
+import { CONTACT_DATA } from '../data/contactData';
 
-interface AboutDeveloperProps {
-  onContact?: () => void;
-}
-
-export const AboutDeveloper: React.FC<AboutDeveloperProps> = ({ onContact }) => {
+export const AboutDeveloper: React.FC = () => {
   return (
     <section id="about" className="py-20 sm:py-28 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
-      <div className="bg-gradient-to-b from-white to-[#f8fafc] border border-black/[0.08] rounded-3xl p-8 sm:p-12 lg:p-16 shadow-[0_12px_40px_rgba(0,0,0,0.03)] relative overflow-hidden">
+      <div className="bg-gradient-to-b from-white to-[#f8fafc] border border-neutral-200/90 rounded-3xl p-8 sm:p-12 lg:p-16 shadow-[0_12px_40px_rgba(0,0,0,0.03)] relative overflow-hidden">
         {/* Subtle Ambient Glow */}
         <div
           aria-hidden="true"
@@ -111,9 +109,9 @@ export const AboutDeveloper: React.FC<AboutDeveloperProps> = ({ onContact }) => 
           {/* Right Column: Interactive Developer Terminal / Metrics Card (5 cols) */}
           <div className="lg:col-span-5 flex flex-col gap-5">
             {/* Terminal Window Card */}
-            <div className="bg-neutral-950 rounded-2xl border border-neutral-800 p-5 shadow-2xl text-white font-mono text-xs overflow-hidden">
+            <div className="bg-[#0f172a] rounded-2xl border border-slate-800 p-5 shadow-2xl text-white font-mono text-xs overflow-hidden">
               {/* Terminal Title Bar */}
-              <div className="flex items-center justify-between pb-3 border-b border-neutral-800 mb-4">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
                 <div className="flex items-center gap-2">
                   <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
                   <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
@@ -163,7 +161,7 @@ export const AboutDeveloper: React.FC<AboutDeveloperProps> = ({ onContact }) => 
               {DEVELOPER_DATA.metrics.map((metric, i) => (
                 <div
                   key={i}
-                  className="bg-white border border-black/[0.08] p-4 rounded-xl shadow-xs hover:border-sky-300 transition-colors"
+                  className="bg-white border border-neutral-200/90 p-4 rounded-xl shadow-xs hover:border-sky-300 transition-colors"
                 >
                   <div className="text-2xl font-extrabold text-blue-600 tracking-tight">
                     {metric.value}
@@ -178,17 +176,18 @@ export const AboutDeveloper: React.FC<AboutDeveloperProps> = ({ onContact }) => 
               ))}
             </div>
 
-            {/* Quick Consultation CTA */}
-            {onContact && (
-              <button
-                type="button"
-                onClick={onContact}
-                className="cursor-pointer btn-hologram py-3 px-6 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 shadow-sm"
-              >
-                <span>Tư Vấn Thiết Kế Portfolio Trực Tiếp 1-1</span>
-                <FontAwesomeIcon icon={faArrowRight} className="text-[11px]" />
-              </button>
-            )}
+            {/* Quick Consultation CTA - Direct Zalo */}
+            <a
+              id="about-developer-zalo-btn"
+              href={CONTACT_DATA.zaloUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cursor-pointer btn-hologram py-3.5 px-6 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 shadow-sm transition-all"
+            >
+              <FontAwesomeIcon icon={faCommentDots} className="text-sm" />
+              <span>Tư Vấn Thiết Kế Portfolio Trực Tiếp 1-1 Qua Zalo</span>
+              <FontAwesomeIcon icon={faArrowRight} className="text-[11px]" />
+            </a>
           </div>
         </div>
       </div>

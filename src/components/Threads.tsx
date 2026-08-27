@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Renderer, Program, Mesh, Triangle, Color } from 'ogl';
 
 interface ThreadsProps extends React.HTMLAttributes<HTMLDivElement> {
   color?: [number, number, number];
@@ -7,22 +8,21 @@ interface ThreadsProps extends React.HTMLAttributes<HTMLDivElement> {
   enableMouseInteraction?: boolean;
 }
 
-const vertexShaderSource = `
+const vertexShader = `
 attribute vec2 position;
 attribute vec2 uv;
 varying vec2 vUv;
-
 void main() {
   vUv = uv;
   gl_Position = vec4(position, 0.0, 1.0);
 }
 `;
 
-const fragmentShaderSource = `
+const fragmentShader = `
 precision highp float;
 
-varying vec2 vUv;
 uniform float iTime;
+uniform vec3 iResolution;
 uniform vec3 uColor;
 uniform float uAmplitude;
 uniform float uDistance;
@@ -30,8 +30,8 @@ uniform vec2 uMouse;
 
 #define PI 3.1415926538
 
-const int u_line_count = 45;
-const float u_line_width = 14.0;
+const int u_line_count = 40;
+const float u_line_width = 7.0;
 const float u_line_blur = 10.0;
 
 float Perlin2D(vec2 P) {
@@ -55,15 +55,20 @@ float Perlin2D(vec2 P) {
     return dot(grad_results, blend2.zxzx * blend2.wwyy);
 }
 
+float pixel(float count, vec2 resolution) {
+    return (1.0 / max(resolution.x, resolution.y)) * count;
+}
+
 float lineFn(vec2 st, float width, float perc, float offset, vec2 mouse, float time, float amplitude, float distance) {
     float split_offset = (perc * 0.4);
     float split_point = 0.1 + split_offset;
 
     float amplitude_normal = smoothstep(split_point, 0.7, st.x);
     float amplitude_strength = 0.5;
-    float finalAmplitude = amplitude_normal * amplitude_strength * amplitude * (1.0 + (mouse.y - 0.5) * 0.25);
+    float finalAmplitude = amplitude_normal * amplitude_strength
+                           * amplitude * (1.0 + (mouse.y - 0.5) * 0.2);
 
-    float time_scaled = time / 8.0 + (mouse.x - 0.5) * 1.0;
+    float time_scaled = time / 10.0 + (mouse.x - 0.5) * 1.0;
     float blur = smoothstep(split_point, split_point + 0.05, st.x) * perc;
 
     float xnoise = mix(
@@ -73,26 +78,35 @@ float lineFn(vec2 st, float width, float perc, float offset, vec2 mouse, float t
     );
 
     float y = 0.5 + (perc - 0.5) * distance + xnoise / 2.0 * finalAmplitude;
-    float halfWidth = max(0.002, width * 0.5 + u_line_blur * 0.0008 * blur);
-    float dist = abs(st.y - y);
-    float line_alpha = 1.0 - smoothstep(0.0, halfWidth, dist);
+
+    float line_start = smoothstep(
+        y + (width / 2.0) + (u_line_blur * pixel(1.0, iResolution.xy) * blur),
+        y,
+        st.y
+    );
+
+    float line_end = smoothstep(
+        y,
+        y - (width / 2.0) - (u_line_blur * pixel(1.0, iResolution.xy) * blur),
+        st.y
+    );
 
     return clamp(
-        line_alpha * (1.0 - smoothstep(0.0, 1.0, pow(perc, 0.4))),
+        (line_start - line_end) * (1.0 - smoothstep(0.0, 1.0, pow(perc, 0.3))),
         0.0,
         1.0
     );
 }
 
-void main() {
-    vec2 uv = vUv;
+void mainImage(out vec4 fragColor, in vec2 fragCoord) {
+    vec2 uv = fragCoord / iResolution.xy;
 
     float line_strength = 1.0;
     for (int i = 0; i < u_line_count; i++) {
         float p = float(i) / float(u_line_count);
         line_strength *= (1.0 - lineFn(
             uv,
-            u_line_width * 0.001 * (1.0 - p * 0.5),
+            u_line_width * pixel(1.0, iResolution.xy) * (1.0 - p),
             p,
             (PI * 1.0) * p,
             uMouse,
@@ -102,15 +116,19 @@ void main() {
         ));
     }
 
-    float colorVal = clamp((1.0 - line_strength) * 3.2, 0.0, 1.0);
-    gl_FragColor = vec4(uColor, colorVal);
+    float colorVal = clamp((1.0 - line_strength) * 1.5, 0.0, 1.0);
+    fragColor = vec4(uColor, colorVal);
+}
+
+void main() {
+    mainImage(gl_FragColor, gl_FragCoord.xy);
 }
 `;
 
 export const Threads: React.FC<ThreadsProps> = ({
   color = [0.02, 0.48, 0.85],
-  amplitude = 1.6,
-  distance = 0.2,
+  amplitude = 1.5,
+  distance = 0.15,
   enableMouseInteraction = true,
   className = '',
   ...rest
@@ -118,6 +136,8 @@ export const Threads: React.FC<ThreadsProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const animationFrameId = useRef<number>(0);
 
+  // Keep the latest props in a ref so updating them mutates the live shader
+  // uniforms instead of tearing down and rebuilding the whole WebGL context.
   const propsRef = useRef({ color, amplitude, distance, enableMouseInteraction });
   propsRef.current = { color, amplitude, distance, enableMouseInteraction };
 
@@ -125,89 +145,58 @@ export const Threads: React.FC<ThreadsProps> = ({
     if (!containerRef.current) return;
     const container = containerRef.current;
 
-    const canvas = document.createElement('canvas');
-    canvas.style.position = 'absolute';
-    canvas.style.top = '0';
-    canvas.style.left = '0';
-    canvas.style.width = '100%';
-    canvas.style.height = '100%';
-    canvas.style.display = 'block';
-    canvas.style.pointerEvents = 'none';
-    container.appendChild(canvas);
-
-    const gl = canvas.getContext('webgl', { alpha: true, antialias: true }) || 
-               canvas.getContext('experimental-webgl', { alpha: true, antialias: true }) as WebGLRenderingContext | null;
-
-    if (!gl) {
-      console.warn('WebGL is not supported on this browser/device');
-      return;
-    }
-
-    function createShader(glContext: WebGLRenderingContext, type: number, source: string) {
-      const shader = glContext.createShader(type);
-      if (!shader) return null;
-      glContext.shaderSource(shader, source);
-      glContext.compileShader(shader);
-      if (!glContext.getShaderParameter(shader, glContext.COMPILE_STATUS)) {
-        console.warn('Shader compile error:', glContext.getShaderInfoLog(shader));
-        glContext.deleteShader(shader);
-        return null;
-      }
-      return shader;
-    }
-
-    const vs = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
-    const fs = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
-
-    if (!vs || !fs) return;
-
-    const program = gl.createProgram();
-    if (!program) return;
-    gl.attachShader(program, vs);
-    gl.attachShader(program, fs);
-    gl.linkProgram(program);
-
-    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-      console.warn('Program link error:', gl.getProgramInfoLog(program));
-      return;
-    }
-
-    // Quad geometry (Full Screen Triangle)
-    const posBuffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, posBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
-    const posLoc = gl.getAttribLocation(program, 'position');
-
-    const uvBuffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, uvBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([0, 0, 2, 0, 0, 2]), gl.STATIC_DRAW);
-    const uvLoc = gl.getAttribLocation(program, 'uv');
-
-    // Uniform locations
-    const timeLoc = gl.getUniformLocation(program, 'iTime');
-    const colorLoc = gl.getUniformLocation(program, 'uColor');
-    const ampLoc = gl.getUniformLocation(program, 'uAmplitude');
-    const distLoc = gl.getUniformLocation(program, 'uDistance');
-    const mouseLoc = gl.getUniformLocation(program, 'uMouse');
-
+    const renderer = new Renderer({ alpha: true });
+    const gl = renderer.gl;
+    gl.clearColor(0, 0, 0, 0);
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
-    gl.clearColor(0, 0, 0, 0);
 
+    gl.canvas.style.position = 'absolute';
+    gl.canvas.style.inset = '0';
+    gl.canvas.style.width = '100%';
+    gl.canvas.style.height = '100%';
+    gl.canvas.style.display = 'block';
+    gl.canvas.style.pointerEvents = 'none';
+
+    container.appendChild(gl.canvas);
+
+    const geometry = new Triangle(gl);
+    const program = new Program(gl, {
+      vertex: vertexShader,
+      fragment: fragmentShader,
+      uniforms: {
+        iTime: { value: 0 },
+        iResolution: {
+          value: new Color(gl.canvas.width || 800, gl.canvas.height || 600, (gl.canvas.width || 800) / (gl.canvas.height || 600)),
+        },
+        uColor: { value: new Color(...propsRef.current.color) },
+        uAmplitude: { value: propsRef.current.amplitude },
+        uDistance: { value: propsRef.current.distance },
+        uMouse: { value: new Float32Array([0.5, 0.5]) },
+      },
+    });
+
+    const mesh = new Mesh(gl, { geometry, program });
+
+    // The fragment shader is heavy (per-pixel Perlin noise across many lines), so
+    // its cost scales with the number of rendered pixels. Cap the internal render
+    // resolution to keep large / high-DPI screens smooth; the effect is soft
+    // enough that the downscale is imperceptible.
     const MAX_RENDER_DIM = 1920;
     function resize() {
-      if (!container || !canvas || !gl) return;
-      const width = container.clientWidth || window.innerWidth;
-      const height = container.clientHeight || window.innerHeight;
-      if (width <= 0 || height <= 0) return;
+      if (!container) return;
+      const clientWidth = container.clientWidth || window.innerWidth;
+      const clientHeight = container.clientHeight || window.innerHeight;
+      if (clientWidth <= 0 || clientHeight <= 0) return;
 
       const baseDpr = Math.min(window.devicePixelRatio || 1, 2);
-      const longestSide = Math.max(width, height) * baseDpr;
+      const longestSide = Math.max(clientWidth, clientHeight) * baseDpr;
       const dpr = longestSide > MAX_RENDER_DIM ? (baseDpr * MAX_RENDER_DIM) / longestSide : baseDpr;
-
-      canvas.width = Math.round(width * dpr);
-      canvas.height = Math.round(height * dpr);
-      gl.viewport(0, 0, canvas.width, canvas.height);
+      renderer.dpr = dpr;
+      renderer.setSize(clientWidth, clientHeight);
+      program.uniforms.iResolution.value.r = gl.canvas.width;
+      program.uniforms.iResolution.value.g = gl.canvas.height;
+      program.uniforms.iResolution.value.b = gl.canvas.width / Math.max(1, gl.canvas.height);
     }
 
     const resizeObserver = new ResizeObserver(resize);
@@ -215,7 +204,6 @@ export const Threads: React.FC<ThreadsProps> = ({
     window.addEventListener('resize', resize);
     resize();
 
-    // Call resize on delayed intervals to adapt to loader transitions
     const t1 = setTimeout(resize, 100);
     const t2 = setTimeout(resize, 500);
     const t3 = setTimeout(resize, 2000);
@@ -227,51 +215,40 @@ export const Threads: React.FC<ThreadsProps> = ({
       if (!container) return;
       const rect = container.getBoundingClientRect();
       if (rect.width <= 0 || rect.height <= 0) return;
-      const x = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-      const y = Math.max(0, Math.min(1, 1.0 - (e.clientY - rect.top) / rect.height));
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = 1.0 - (e.clientY - rect.top) / rect.height;
       targetMouse = [x, y];
     }
-
+    function handleMouseLeave() {
+      targetMouse = [0.5, 0.5];
+    }
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
-    const startTime = performance.now();
-
-    function render(t: number) {
-      animationFrameId.current = requestAnimationFrame(render);
-      if (document.hidden || !gl || !program) return;
+    function update(t: number) {
+      animationFrameId.current = requestAnimationFrame(update);
+      if (document.hidden) return;
 
       const { color, amplitude, distance, enableMouseInteraction } = propsRef.current;
 
-      gl.useProgram(program);
-
-      // Bind attributes
-      gl.bindBuffer(gl.ARRAY_BUFFER, posBuffer);
-      gl.enableVertexAttribArray(posLoc);
-      gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
-
-      gl.bindBuffer(gl.ARRAY_BUFFER, uvBuffer);
-      gl.enableVertexAttribArray(uvLoc);
-      gl.vertexAttribPointer(uvLoc, 2, gl.FLOAT, false, 0, 0);
+      program.uniforms.uColor.value.set(...color);
+      program.uniforms.uAmplitude.value = amplitude;
+      program.uniforms.uDistance.value = distance;
 
       if (enableMouseInteraction) {
         const smoothing = 0.05;
         currentMouse[0] += smoothing * (targetMouse[0] - currentMouse[0]);
         currentMouse[1] += smoothing * (targetMouse[1] - currentMouse[1]);
-        gl.uniform2f(mouseLoc, currentMouse[0], currentMouse[1]);
+        program.uniforms.uMouse.value[0] = currentMouse[0];
+        program.uniforms.uMouse.value[1] = currentMouse[1];
       } else {
-        gl.uniform2f(mouseLoc, 0.5, 0.5);
+        program.uniforms.uMouse.value[0] = 0.5;
+        program.uniforms.uMouse.value[1] = 0.5;
       }
+      program.uniforms.iTime.value = t * 0.001;
 
-      gl.uniform1f(timeLoc, (t - startTime) * 0.001);
-      gl.uniform3f(colorLoc, color[0], color[1], color[2]);
-      gl.uniform1f(ampLoc, amplitude);
-      gl.uniform1f(distLoc, distance);
-
-      gl.clear(gl.COLOR_BUFFER_BIT);
-      gl.drawArrays(gl.TRIANGLES, 0, 3);
+      renderer.render({ scene: mesh });
     }
-
-    animationFrameId.current = requestAnimationFrame(render);
+    animationFrameId.current = requestAnimationFrame(update);
 
     return () => {
       if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
@@ -281,12 +258,8 @@ export const Threads: React.FC<ThreadsProps> = ({
       resizeObserver.disconnect();
       window.removeEventListener('resize', resize);
       window.removeEventListener('mousemove', handleMouseMove);
-      if (container.contains(canvas)) container.removeChild(canvas);
-      if (posBuffer) gl.deleteBuffer(posBuffer);
-      if (uvBuffer) gl.deleteBuffer(uvBuffer);
-      if (program) gl.deleteProgram(program);
-      if (vs) gl.deleteShader(vs);
-      if (fs) gl.deleteShader(fs);
+      if (container.contains(gl.canvas)) container.removeChild(gl.canvas);
+      gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
   }, []);
 

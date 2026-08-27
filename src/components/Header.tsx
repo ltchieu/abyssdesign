@@ -5,13 +5,10 @@ import {
   faXmark,
   faArrowUpRightFromSquare
 } from '@fortawesome/free-solid-svg-icons';
+import { faCommentDots } from '@fortawesome/free-regular-svg-icons';
 import { CONTACT_DATA } from '../data/contactData';
 
-interface HeaderProps {
-  onOpenEstimator: () => void;
-}
-
-export const Header: React.FC<HeaderProps> = ({ onOpenEstimator }) => {
+export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
@@ -54,17 +51,22 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEstimator }) => {
       id="main-header"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#fafafa]/95 backdrop-blur-lg border-b border-black/[0.08] py-3.5 shadow-[0_4px_25px_-5px_rgba(0,0,0,0.06)]'
+          ? 'bg-[#fafafa]/95 backdrop-blur-lg border-b border-neutral-200/80 py-3.5 shadow-[0_4px_25px_-5px_rgba(0,0,0,0.06)]'
           : 'bg-transparent py-5 sm:py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
-        {/* Brand Logo */}
+        {/* Brand Logo with Official ABYSS Emblem */}
         <a
           id="brand-logo"
           href="#"
-          className="group flex items-center gap-2 text-[18px] sm:text-[20px] font-bold tracking-tight transition-colors"
+          className="group flex items-center gap-2.5 text-[18px] sm:text-[20px] font-bold tracking-tight transition-colors"
         >
+          <img
+            src="/logo_no_title.png"
+            alt="ABYSS Emblem"
+            className="w-8 h-8 rounded-lg object-contain bg-slate-900 p-1 border border-slate-700/60 shadow-xs group-hover:border-sky-400/60 group-hover:shadow-[0_0_12px_rgba(2,132,199,0.3)] transition-all"
+          />
           <span className="text-hologram font-extrabold tracking-wider">
             ABYSS
           </span>
@@ -100,16 +102,19 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEstimator }) => {
           })}
         </nav>
 
-        {/* Right Action CTA */}
+        {/* Right Action CTA - Direct Zalo Link */}
         <div className="hidden md:flex items-center gap-3">
-          <button
+          <a
             id="header-cta-button"
-            onClick={onOpenEstimator}
+            href={CONTACT_DATA.zaloUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="cursor-pointer group btn-hologram text-[13.5px] font-semibold px-5 py-2 rounded-full transition-all duration-200 flex items-center gap-2 shadow-sm"
           >
-            <span>Nhận Tư Vấn</span>
+            <FontAwesomeIcon icon={faCommentDots} className="text-sm" />
+            <span>Nhận Tư Vấn Zalo</span>
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="text-[11px] opacity-90 group-hover:opacity-100 transition-opacity" />
-          </button>
+          </a>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -131,7 +136,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEstimator }) => {
       {mobileMenuOpen && (
         <div
           id="mobile-nav-drawer"
-          className="md:hidden bg-[#fafafa]/98 backdrop-blur-xl border-b border-black/[0.08] px-6 py-6 transition-all duration-300 shadow-xl"
+          className="md:hidden bg-[#fafafa]/98 backdrop-blur-xl border-b border-neutral-200/80 px-6 py-6 transition-all duration-300 shadow-xl"
         >
           <div className="flex flex-col gap-4">
             {navLinks.map((link) => (
@@ -149,17 +154,18 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEstimator }) => {
               </a>
             ))}
             <div className="pt-2">
-              <button
+              <a
                 id="mobile-cta-button"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenEstimator();
-                }}
-                className="w-full btn-hologram text-white text-[14px] font-semibold py-3 rounded-full transition-all flex items-center justify-center gap-2 cursor-pointer"
+                href={CONTACT_DATA.zaloUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full btn-hologram text-white text-[14px] font-semibold py-3 rounded-full transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
               >
-                <span>Nhận Tư Vấn Portfolio</span>
+                <FontAwesomeIcon icon={faCommentDots} />
+                <span>Nhận Tư Vấn Qua Zalo</span>
                 <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="text-xs" />
-              </button>
+              </a>
             </div>
           </div>
         </div>

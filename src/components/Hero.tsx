@@ -27,7 +27,7 @@ export const Hero: React.FC<HeroProps> = ({ onStartProject, onExploreWork, onVie
         <Threads
           color={[0.02, 0.48, 0.85]}
           amplitude={1}
-          distance={0.2}
+          distance={0.1}
           enableMouseInteraction={false}
         />
       </div>
@@ -40,8 +40,8 @@ export const Hero: React.FC<HeroProps> = ({ onStartProject, onExploreWork, onVie
 
       <div className="max-w-4xl mx-auto flex flex-col items-center relative z-10 pointer-events-auto">
         {/* Service Category Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-xs border border-black/[0.08] shadow-xs text-xs font-semibold text-neutral-800 mb-6 sm:mb-8">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-xs border border-neutral-200/90 shadow-xs text-xs font-semibold text-neutral-800 mb-6 sm:mb-8">
+          <img src="/logo_no_title.png" alt="ABYSS Logo" className="w-4 h-4 rounded object-contain bg-slate-900 border border-slate-700/60 p-0.5" />
           <span className="text-hologram font-bold">ABYSS DESIGN</span>
           <span className="text-neutral-300">|</span>
           <span>Dịch Vụ Thiết Kế Portfolio Chuyên Nghiệp</span>
@@ -77,27 +77,27 @@ export const Hero: React.FC<HeroProps> = ({ onStartProject, onExploreWork, onVie
           <button
             id="hero-explore-work-btn"
             onClick={onExploreWork}
-            className="cursor-pointer bg-white/90 backdrop-blur-xs hover:bg-neutral-50 text-neutral-800 border border-black/[0.08] text-[14.5px] sm:text-[15px] font-semibold px-7 py-3.5 rounded-full flex items-center justify-center gap-2 w-full sm:w-auto transition-all shadow-xs"
+            className="cursor-pointer bg-white/90 backdrop-blur-xs hover:bg-neutral-50 text-neutral-800 border border-neutral-200/90 text-[14.5px] sm:text-[15px] font-semibold px-7 py-3.5 rounded-full flex items-center justify-center gap-2 w-full sm:w-auto transition-all shadow-xs"
           >
             <span>{HERO_DATA.secondaryCta}</span>
           </button>
         </div>
 
         {/* 4 Core Value Badges */}
-        <div className="mt-12 sm:mt-16 pt-8 border-t border-black/[0.06] grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-neutral-600 text-xs sm:text-[13px] w-full">
-          <div className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-white/80 backdrop-blur-xs border border-black/[0.04] shadow-2xs">
+        <div className="mt-12 sm:mt-16 pt-8 border-t border-neutral-200/60 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-neutral-600 text-xs sm:text-[13px] w-full">
+          <div className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-white/80 backdrop-blur-xs border border-neutral-200/50 shadow-2xs">
             <FontAwesomeIcon icon={faClock} className="text-sky-500" />
             <span className="font-medium">Hoàn thành ~ 3–7 ngày</span>
           </div>
-          <div className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-white/80 backdrop-blur-xs border border-black/[0.04] shadow-2xs">
+          <div className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-white/80 backdrop-blur-xs border border-neutral-200/50 shadow-2xs">
             <FontAwesomeIcon icon={faEye} className="text-blue-600" />
             <span className="font-medium">Demo trước khi bàn giao</span>
           </div>
-          <div className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-white/80 backdrop-blur-xs border border-black/[0.04] shadow-2xs">
+          <div className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-white/80 backdrop-blur-xs border border-neutral-200/50 shadow-2xs">
             <FontAwesomeIcon icon={faShieldHalved} className="text-emerald-500" />
             <span className="font-medium">Free Deploy 1 năm</span>
           </div>
-          <div className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-white/80 backdrop-blur-xs border border-black/[0.04] shadow-2xs">
+          <div className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-white/80 backdrop-blur-xs border border-neutral-200/50 shadow-2xs">
             <FontAwesomeIcon icon={faMobileScreenButton} className="text-indigo-500" />
             <span className="font-medium">100% Mobile & PC Responsive</span>
           </div>

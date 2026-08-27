@@ -13,13 +13,9 @@ import {
   faCircleCheck
 } from '@fortawesome/free-solid-svg-icons';
 import { PRICING_PACKAGES } from '../data/pricingData';
-import { PricingPackage } from '../types';
+import { CONTACT_DATA } from '../data/contactData';
 
-interface PricingPackagesProps {
-  onSelectPackage: (pkg: PricingPackage) => void;
-}
-
-export const PricingPackages: React.FC<PricingPackagesProps> = ({ onSelectPackage }) => {
+export const PricingPackages: React.FC = () => {
   return (
     <section id="pricing" className="py-20 sm:py-28 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
       {/* Section Header */}
@@ -52,8 +48,8 @@ export const PricingPackages: React.FC<PricingPackagesProps> = ({ onSelectPackag
               id={`pricing-card-${pkg.id}`}
               className={`relative rounded-3xl p-8 sm:p-10 transition-all duration-500 flex flex-col justify-between ${
                 isCustom
-                  ? 'bg-neutral-900 text-white border-2 border-sky-400 shadow-[0_20px_50px_rgba(2,132,199,0.22)] ring-4 ring-sky-400/20'
-                  : 'bg-white text-neutral-900 border border-black/[0.08] hover:border-sky-300 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_40px_rgba(14,165,233,0.12)]'
+                  ? 'bg-[#0f172a] text-white border-2 border-sky-400 shadow-[0_20px_50px_rgba(2,132,199,0.22)] ring-4 ring-sky-400/20'
+                  : 'bg-white text-neutral-900 border border-neutral-200/90 hover:border-sky-300 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_40px_rgba(14,165,233,0.12)]'
               }`}
             >
               {/* Popular Holographic Ribbon */}
@@ -106,7 +102,7 @@ export const PricingPackages: React.FC<PricingPackagesProps> = ({ onSelectPackag
                 </p>
 
                 {/* Price Display */}
-                <div className="mb-6 pb-6 border-b border-black/[0.08] dark:border-white/10">
+                <div className="mb-6 pb-6 border-b border-neutral-200/70 dark:border-white/10">
                   <div className="flex items-baseline gap-2">
                     <span
                       className={`text-[38px] sm:text-[44px] font-extrabold tracking-tight ${
@@ -124,7 +120,7 @@ export const PricingPackages: React.FC<PricingPackagesProps> = ({ onSelectPackag
                   <div className="grid grid-cols-2 gap-3 mt-4">
                     <div
                       className={`p-2.5 rounded-xl text-xs flex items-center gap-2 ${
-                        isCustom ? 'bg-neutral-800/80 border border-neutral-700' : 'bg-neutral-50 border border-neutral-100'
+                        isCustom ? 'bg-slate-800/80 border border-slate-700' : 'bg-neutral-50 border border-neutral-100'
                       }`}
                     >
                       <FontAwesomeIcon icon={faClock} className="text-sky-500 text-sm shrink-0" />
@@ -136,7 +132,7 @@ export const PricingPackages: React.FC<PricingPackagesProps> = ({ onSelectPackag
 
                     <div
                       className={`p-2.5 rounded-xl text-xs flex items-center gap-2 ${
-                        isCustom ? 'bg-neutral-800/80 border border-neutral-700' : 'bg-neutral-50 border border-neutral-100'
+                        isCustom ? 'bg-slate-800/80 border border-slate-700' : 'bg-neutral-50 border border-neutral-100'
                       }`}
                     >
                       <FontAwesomeIcon icon={faRotate} className="text-emerald-500 text-sm shrink-0" />
@@ -177,20 +173,22 @@ export const PricingPackages: React.FC<PricingPackagesProps> = ({ onSelectPackag
                 </div>
               </div>
 
-              {/* Action Button */}
+              {/* Action Button - Direct Zalo */}
               <div>
-                <button
-                  type="button"
-                  onClick={() => onSelectPackage(pkg)}
+                <a
+                  id={`pricing-zalo-btn-${pkg.id}`}
+                  href={CONTACT_DATA.zaloUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`w-full cursor-pointer py-3.5 px-6 rounded-2xl font-semibold text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-md ${
                     isCustom
                       ? 'btn-hologram text-white hover:shadow-[0_8px_30px_rgba(2,132,199,0.5)]'
-                      : 'bg-neutral-900 hover:bg-black text-white hover:shadow-lg'
+                      : 'bg-slate-900 hover:bg-slate-800 text-white hover:shadow-lg'
                   }`}
                 >
-                  <span>{pkg.ctaText}</span>
+                  <span>{pkg.ctaText} Qua Zalo</span>
                   <FontAwesomeIcon icon={faArrowRight} className="text-xs transition-transform group-hover:translate-x-1" />
-                </button>
+                </a>
 
                 <div
                   className={`mt-3.5 text-center text-[11px] flex items-center justify-center gap-1.5 ${

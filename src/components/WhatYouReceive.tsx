@@ -57,7 +57,7 @@ export const WhatYouReceive: React.FC = () => {
             className={`group bg-white border rounded-2xl p-6 sm:p-7 transition-all duration-300 flex flex-col justify-between cursor-pointer ${
               selectedItem?.id === item.id
                 ? 'border-blue-500 ring-2 ring-blue-100 shadow-[0_8px_30px_rgba(37,99,235,0.08)] -translate-y-1'
-                : 'border-black/[0.08] hover:border-black/20 hover:shadow-[0_8px_24px_rgba(0,0,0,0.04)] hover:-translate-y-0.5'
+                : 'border-neutral-200/90 hover:border-neutral-300 hover:shadow-[0_8px_24px_rgba(15,23,42,0.04)] hover:-translate-y-0.5'
             }`}
           >
             <div>
