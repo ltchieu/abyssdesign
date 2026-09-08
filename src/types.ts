@@ -2,18 +2,25 @@ export interface Project {
   id: string;
   title: string;
   category: string;
+  badge: string;
   tagline: string;
-  iconType: 'creative' | 'architect' | 'executive' | 'photographer' | 'developer';
+  iconType: 'creative' | 'architect' | 'executive' | 'developer' | 'marketing';
   client: string;
   year: string;
   role: string;
   duration: string;
   stats: { label: string; value: string }[];
   overview: string;
+  highlights: string[];
   deliverables: string[];
   technologies: string[];
-  colorTheme: string;
-  previewType: 'creative-director' | 'architect' | 'executive';
+  accentColor: string;
+  previewType: 'developer' | 'marketing' | 'creative-director' | 'architect';
+  demoUrl?: string;
+  githubUrl?: string;
+  systemMetrics?: { label: string; value: string; desc: string }[];
+  architectureNodes?: { step: string; detail: string }[];
+  galleryImages: { url: string; title: string; tag: string }[];
 }
 
 export interface ExpertiseItem {
