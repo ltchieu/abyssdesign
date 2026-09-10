@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SmoothScrollProvider } from './components/SmoothScrollProvider';
 import { AbyssalLoader } from './components/AbyssalLoader';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
@@ -27,7 +28,7 @@ export default function App() {
   };
 
   return (
-    <>
+    <SmoothScrollProvider>
       {/* Abyssal 0 -> 100% Loader with Official Logo */}
       {isLoading && (
         <AbyssalLoader onComplete={() => setIsLoading(false)} />
@@ -76,6 +77,6 @@ export default function App() {
 
       {/* True Fixed Floating Zalo Widget - Floats above entire viewport */}
       <FloatingZalo />
-    </>
+    </SmoothScrollProvider>
   );
 }

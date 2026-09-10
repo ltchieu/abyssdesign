@@ -90,15 +90,15 @@ export const Hero: React.FC<HeroProps> = ({ onStartProject, onExploreWork, onVie
             <span className="font-medium">Hoàn thành ~ 3–7 ngày</span>
           </div>
           <div className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-white/80 backdrop-blur-xs border border-neutral-200/50 shadow-2xs">
-            <FontAwesomeIcon icon={faEye} className="text-blue-600" />
+            <FontAwesomeIcon icon={faEye} className="text-sky-500" />
             <span className="font-medium">Demo trước khi bàn giao</span>
           </div>
           <div className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-white/80 backdrop-blur-xs border border-neutral-200/50 shadow-2xs">
-            <FontAwesomeIcon icon={faShieldHalved} className="text-emerald-500" />
+            <FontAwesomeIcon icon={faShieldHalved} className="text-sky-500" />
             <span className="font-medium">Free Deploy 1 năm</span>
           </div>
           <div className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-white/80 backdrop-blur-xs border border-neutral-200/50 shadow-2xs">
-            <FontAwesomeIcon icon={faMobileScreenButton} className="text-indigo-500" />
+            <FontAwesomeIcon icon={faMobileScreenButton} className="text-sky-500" />
             <span className="font-medium">100% Mobile & PC Responsive</span>
           </div>
         </div>

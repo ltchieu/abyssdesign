@@ -2,257 +2,258 @@ import { Project } from '../types';
 
 export const PROJECTS: Project[] = [
   {
-    id: 'aetheria-nexus',
-    title: 'Aetheria Nexus',
-    category: 'Kiến Trúc Phần Mềm & Kỹ Sư Hệ Thống (Software Architect)',
-    badge: 'Deep Tech & Architecture',
-    tagline: 'Kiến trúc hệ thống phân tán, xử lý hàng triệu bản ghi và tối ưu phản hồi micro-second với giao diện WebGL tương tác toạ độ 3D.',
+    id: 'letruongconghieu-nexus',
+    title: 'Lê Trương Công Hiếu',
+    category: 'Kỹ Sư Phần Mềm & Lập Trình Viên Backend',
+    badge: 'Backend & High-Performance Systems',
+    tagline: 'Thiết kế kiến trúc máy chủ chịu tải cao, tối ưu hóa cơ sở dữ liệu và xây dựng hệ sinh thái RESTful microservices với Java Spring Boot & .NET.',
     iconType: 'developer',
-    client: 'Lê Trường Công Hiếu — Lead Architect & Fullstack Engineer',
+    client: 'Lê Trương Công Hiếu — Software Developer',
     year: '2024 — 2026',
-    role: 'System Architecture & High-Performance Fullstack',
+    role: 'Software Engineer & Backend Architecture',
     duration: '4 Tuần',
-    accentColor: '#0284c7',
+    accentColor: '#38bdf8',
     previewType: 'developer',
     stats: [
-      { label: 'Tốc độ phản hồi trang', value: '< 12ms' },
-      { label: 'Điểm Lighthouse Google', value: '100/100' },
-      { label: 'Tỷ lệ offer Tech Lead', value: '+320%' }
+      { label: 'Điểm GPA Đại Học', value: '3.46 / 4.0' },
+      { label: 'Học Bổng Học Thuật', value: '4 Học Kỳ' },
+      { label: 'Đóng Góp GitHub', value: '74+ Commit' }
     ],
-    overview: 'Aetheria Nexus là mẫu portfolio đỉnh cao dành riêng cho Lập trình viên cao cấp, Tech Lead và Solution Architect. Thay vì chỉ hiển thị CV tĩnh, trang web mô phỏng trực quan kiến trúc microservices phân tán, bảng phân tích hiệu năng thời gian thực và tích hợp terminal tương tác 3D WebGL.',
+    overview: 'Portfolio kỹ sư phần mềm của Lê Trương Công Hiếu tập trung vào chiều sâu kỹ thuật (deep tech), phô diễn năng lực xây dựng các hệ sinh thái dịch vụ phụ trợ (backend), cơ sở dữ liệu phân tán và ứng dụng tương tác thời gian thực. Được trang bị thiết kế tối giản, công nghệ hiển thị chỉ số benchmark trực tiếp và trải nghiệm terminal tương tác.',
     highlights: [
-      'Sơ đồ phân rã kiến trúc Microservices phân tán với Zero-Trust Security',
-      'Đo lường thời gian thực: Lighthouse Performance 100/100, TTFB < 50ms',
-      'Tích hợp Code Sandbox & Terminal mô phỏng kiểm thử API tức thì',
-      'Bộ sưu tập 6 dự án thực chiến: Quản lý chuỗi cung ứng, Realtime Chat Gateway, Admin Dashboard'
+      'Hệ Thống Quản Lý Tôm Giống: Chuỗi cung ứng & quản lý tồn kho với Java 17, Spring Boot 3.x, Spring Security & JWT, SQL Server (JPA/Hibernate)',
+      'Quản Lý Trung Tâm Ngoại Ngữ: Hệ thống kép gồm Admin Dashboard (Material UI) và Portal Học Viên (Tailwind CSS, React, TypeScript)',
+      'Realtime Chat App: Giao thức WebSocket 2 chiều với Java, Socket.io và Node.js',
+      'Nghiên cứu kiến trúc phát sóng IP & Smart City IoT trên thiết bị L300 4G/WiFi tại Sài Gòn Lab'
     ],
     deliverables: [
-      'Giao diện Portfolio chuẩn WebGL 3D Matrix tương tác mượt mà',
-      'Hệ thống trưng bày mã nguồn GitHub và Live Demo nhúng trực tiếp',
-      'Bảng điều khiển chỉ số hiệu năng (Core Web Vitals & Latency Benchmark)',
-      'Tối ưu chuẩn SEO Developer & cấu trúc dữ liệu Schema.org'
+      'Giao diện Portfolio chuẩn tương tác High-Performance WebGL & Motion',
+      'Hệ thống trưng bày các dự án thực chiến tích hợp Demo & GitHub Links',
+      'Bảng đo lường kỹ năng Tech Stack phân tầng (Backend, Frontend, Cloud)',
+      'Tối ưu hóa thời gian tải trang đạt chuẩn Core Web Vitals tuyệt đối'
     ],
-    technologies: ['Java 17', 'Spring Boot 3.x', 'React 19', 'TypeScript', 'Tailwind CSS', 'WebGL', 'Docker', 'PostgreSQL'],
+    technologies: ['Java 17', 'Spring Boot 3.x', 'C# / ASP.NET', 'SQL Server', 'MongoDB', 'React', 'TypeScript', 'Docker', 'AWS'],
     demoUrl: 'https://letruongconghieu.click/',
     githubUrl: 'https://github.com/ltconghieu',
     systemMetrics: [
-      { label: 'Core Web Vitals', value: '100/100', desc: 'Đạt điểm tuyệt đối Google PageSpeed' },
-      { label: 'Server Latency', value: '< 12ms', desc: 'Tối ưu hoá bộ nhớ đệm đa tầng Redis' },
-      { label: 'Throughput', value: '10,000+ RPS', desc: 'Khả năng chịu tải đồng thời cao' },
-      { label: 'Type Safety', value: '100% Strict', desc: 'TypeScript & Spring Data Validation' }
+      { label: 'Core Web Vitals', value: '100/100', desc: 'Đạt điểm chuẩn tối ưu tuyệt đối PageSpeed' },
+      { label: 'API Response', value: '< 20ms', desc: 'Tối ưu truy vấn SQL Server & Hibernate cache' },
+      { label: 'Architecture', value: 'Microservices', desc: 'Spring Boot Gateway, JWT stateless auth' },
+      { label: 'Academic Standing', value: 'Top Honor', desc: '4 kỳ liên tiếp đạt học bổng học tập HUIT' }
     ],
     architectureNodes: [
-      { step: 'Edge Layer', detail: 'Cloudflare CDN & Global Anycast DNS Routing' },
-      { step: 'Gateway & Auth', detail: 'Spring Cloud Gateway, JWT stateless & Rate Limiter' },
-      { step: 'Core Services', detail: 'Spring Boot 3.x Microservices & WebSocket Engine' },
-      { step: 'Data & Cache', detail: 'PostgreSQL Distributed Cluster + Redis Multi-tier Cache' }
+      { step: 'Edge & Client', detail: 'React 19, TypeScript, Axios client & Cloudflare CDN' },
+      { step: 'Security & Auth', detail: 'Spring Security 6, Stateless JWT Token & Role-based Auth' },
+      { step: 'Service Core', detail: 'Spring Boot 3.x REST Services, MapStruct DTO & Lombok' },
+      { step: 'Data & Persistence', detail: 'SQL Server distributed cluster + JPA Hibernate queries' }
     ],
     galleryImages: [
       {
-        url: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
-        title: 'Bản đồ kiến trúc vi dịch vụ & Luồng dữ liệu phân tán',
-        tag: 'System Architecture'
+        url: 'https://letruongconghieu.click/assets/shrimp-management-BHHkJBD8.png',
+        title: 'Hệ Thống Quản Lý Tôm Giống — Supply Chain & Inventory',
+        tag: 'Java 17 & Spring Boot'
       },
       {
-        url: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80',
-        title: 'Giao diện quản trị Admin & Đo lường tài nguyên thời gian thực',
-        tag: 'Dashboard Matrix'
+        url: 'https://letruongconghieu.click/assets/qltt-admin-CINBs4QQ.png',
+        title: 'Quản Lý Trung Tâm Ngoại Ngữ — Admin Dashboard Interface',
+        tag: 'React & Material UI'
       },
       {
-        url: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80',
-        title: 'Tích hợp Terminal tương tác & Phân tích truy vấn cơ sở dữ liệu',
-        tag: 'Terminal Engine'
+        url: 'https://letruongconghieu.click/assets/realtime-chat-waM2pX2I.png',
+        title: 'Realtime Chat Application — WebSocket & Live Messaging',
+        tag: 'Realtime Gateway'
       }
     ]
   },
   {
-    id: 'lumina-pulse',
-    title: 'Lumina Pulse',
-    category: 'Chiến Dịch Truyền Thông & Sự Kiện (Brand & Event Activations)',
-    badge: 'Interactive Physics & Campaign Story',
-    tagline: 'Không gian trưng bày chiến dịch đa kênh với tương tác thẻ bài vật lý đa chiều, kể câu chuyện đại nhạc hội và dự án cộng đồng quy mô 85.000+ người.',
+    id: 'minhkhanh-marcom',
+    title: 'Nguyễn Hà Minh Khánh',
+    category: 'Truyền Thông Thương Hiệu & Sự Kiện (MarCom & PR)',
+    badge: 'Brand PR & Campus Media',
+    tagline: 'Chiến lược truyền thông tích hợp, sản xuất phim ngắn nghệ thuật và điều phối sự kiện quy mô lớn với kinh nghiệm tại các tập đoàn nghỉ dưỡng và đại học quốc tế.',
     iconType: 'marketing',
-    client: 'Minh Khánh (Mia Nguyen) — Brand Marketing & Communications',
+    client: 'Nguyễn Hà Minh Khánh (Mia Nguyen) — MarCom Specialist',
     year: '2024 — 2026',
-    role: 'Brand Experience & Event Activation Direction',
-    duration: '5 Tuần',
-    accentColor: '#8b5cf6',
+    role: 'Brand Communications & Event Coordinator',
+    duration: '4 Tuần',
+    accentColor: '#c084fc',
     previewType: 'marketing',
     stats: [
-      { label: 'Lượt tiếp cận truyền thông', value: '2.4M+' },
-      { label: 'Tỷ lệ chốt tài trợ sự kiện', value: '94%' },
-      { label: 'Người tham dự thực tế', value: '85,000+' }
+      { label: 'Học Bổng Thạc Sĩ UK', value: '£6,000' },
+      { label: 'Chứng Chỉ Ngoại Ngữ', value: 'IELTS B2' },
+      { label: 'Kinh Nghiệm MarCom', value: '4+ Năm' }
     ],
-    overview: 'Lumina Pulse tái định nghĩa cách các Chuyên gia Marketing và Giám đốc Sự kiện trình diễn thành tựu. Ứng dụng công nghệ thẻ bài vật lý tương tác (Physics Card Stack & BounceCards), người xem có thể kéo, thả, lướt qua các ấn phẩm visual, video trailer và số liệu chiến dịch sống động như đang xem triển lãm thực tế.',
+    overview: 'Portfolio MarCom & PR của Nguyễn Hà Minh Khánh (Mia Nguyen) làm nổi bật câu chuyện phát triển sự nghiệp từ đại diện Hội sinh viên đến chuyên viên truyền thông chuyên nghiệp. Kết hợp trải nghiệm xem video ngắn tương tác, hồ sơ học bổng quốc tế và các dự án sản xuất nội dung nghệ thuật ấn tượng.',
     highlights: [
-      'Trải nghiệm thẻ bài vật lý (Draggable Stack & Physics Bounce) tương tác mượt mà',
-      'Hồ sơ chiến dịch The Phoenix Music Festival: Visual Identity, VIP Wristbands, 1x2m Standees',
-      'Dự án cộng đồng Xuân Tình Nguyện & Saigon Lưu Lạc Ký: Triển lãm và phim tư liệu',
-      'Đo lường hiệu quả chuyển đổi truyền thông (Reach, Engagement, Sponsor Conversion)'
+      'Sản xuất phim ngắn nghệ thuật The Shadow (Dream Club) — Biên kịch & chỉ đạo teaser điện ảnh',
+      'Chiến dịch truyền thông số Lễ tốt nghiệp HCMCOU 2025: Chuỗi 3 video reel hướng dẫn và nhắc lịch',
+      'Đạt vòng phỏng vấn Học bổng Xuất sắc Sau đại học Đông Nam Á trị giá £6,000 tại University of South Wales (UK)',
+      'Kinh nghiệm điều phối truyền thông tại Amor Resort | Protea Garden | Aqua Jardin và OU News'
     ],
     deliverables: [
-      'Giao diện Portfolio tương tác vật lý (Interactive Dynamic Card Deck)',
-      'Hệ thống phân trang Case Study đa phương tiện (Video, Phóng sự ảnh, Báo cáo số liệu)',
-      'Thư viện ấn phẩm truyền thông phân giải cao',
-      'Tích hợp Zalo & LinkedIn kết nối nhanh cho các đối tác tài trợ'
+      'Giao diện Portfolio phong cách Modern Manifesto với tương tác mượt mà',
+      'Showcase đa phương tiện tích hợp video reel mạng xã hội và phóng sự ảnh',
+      'Bộ hồ sơ năng lực & chứng chỉ kiểm định quốc tế (IELTS, RBL Marketing, SIYLI)',
+      'Tối ưu hóa đa kênh kết nối trực tiếp qua Zalo, LinkedIn và Email'
     ],
-    technologies: ['React 19', 'Tailwind CSS', 'Framer Motion', 'Physics Springs', 'TypeScript', 'Vite'],
+    technologies: ['Brand Strategy', 'Public Relations', 'Video Reel Production', 'Content Strategy', 'Event Marketing', 'AI Tools'],
     demoUrl: 'https://portfolio-minhkhanh.vercel.app/',
     systemMetrics: [
-      { label: 'Campaign Reach', value: '2.4M+', desc: 'Tổng số lượt xem đa kênh số' },
-      { label: 'Event Attendees', value: '85k+', desc: 'Lượng khán giả tham gia sự kiện' },
-      { label: 'Brand Conversion', value: '+78%', desc: 'Tăng trưởng nhận diện thương hiệu' },
-      { label: 'Sponsorship Rate', value: '94%', desc: 'Tỷ lệ hoàn thành mục tiêu tài trợ' }
+      { label: 'Academic Honor', value: '£6,000 Award', desc: 'Học bổng Xuất sắc Thạc sĩ University of South Wales' },
+      { label: 'Media Production', value: '5+ Video Reels', desc: 'Phim ngắn The Shadow & Campus Media HCMCOU' },
+      { label: 'English Proficiency', value: 'IELTS Academic', desc: 'B2 Academic Proficiency do IDP / Cambridge cấp' },
+      { label: 'Leadership', value: 'Vice Chairman', desc: 'Phó Ban Liên lạc Hội Sinh viên SAS - HCMCOU' }
     ],
     architectureNodes: [
-      { step: 'Brand Concept', detail: 'Nghiên cứu thị trường mục tiêu & Định vị linh hồn sự kiện' },
-      { step: 'Visual Production', detail: 'Sáng tạo hệ thống Key Visual, Poster, Standee, VIP Pass' },
-      { step: 'Omnichannel Push', detail: 'Chiến dịch lan toả mạng xã hội, báo chí & KOC Network' },
-      { step: 'Post-Event Impact', detail: 'Đo lường ROI, báo cáo số liệu và chuyển đổi tài trợ' }
+      { step: 'Insight & Strategy', detail: 'Phân tích mục tiêu doanh nghiệp & Định vị thông điệp truyền thông' },
+      { step: 'Creative Production', detail: 'Biên kịch, quay dựng video ngắn & Thiết kế ấn phẩm sự kiện' },
+      { step: 'Omnichannel MarCom', detail: 'Lan tỏa đa kênh mạng xã hội, thông cáo báo chí & KOC' },
+      { step: 'Evaluation & Stakeholders', detail: 'Đo lường tương tác, báo cáo chỉ số và kết nối đối tác' }
     ],
     galleryImages: [
       {
-        url: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80',
-        title: 'The Phoenix Music Festival — Sân khấu & Hệ thống nhận diện thị giác',
-        tag: 'Music Activation'
+        url: 'https://portfolio-minhkhanh.vercel.app/assets/avatar-D5jmBeCU.JPG',
+        title: 'Hồ sơ chân dung Mia Nguyen — Brand & Marketing Communications',
+        tag: 'Identity & Manifesto'
       },
       {
-        url: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80',
-        title: 'Triển lãm cộng đồng & Chiến dịch lan toả giá trị nhân văn',
-        tag: 'Community Outreach'
+        url: 'https://portfolio-minhkhanh.vercel.app/assets/RBL%20Certificate%20(2)-DxZGf95X.webp',
+        title: 'Chứng nhận Chiến lược Fullstack Marketing Management — RBL Academy',
+        tag: 'Professional Certification'
       },
       {
-        url: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80',
-        title: 'Bộ ấn phẩm truyền thông VIP, vé điện tử & tài liệu tài trợ',
-        tag: 'Media Identity'
+        url: 'https://portfolio-minhkhanh.vercel.app/assets/USW%20SEA%20Scholarship%20Interview-DkbYZpXr.webp',
+        title: 'Học bổng Sau đại học £6,000 — University of South Wales, UK',
+        tag: 'International Award'
       }
     ]
   },
   {
-    id: 'maison-art',
-    title: "Maison De L'Art",
-    category: 'Giám Đốc Nghệ Thuật & Thời Trang (Art Direction & Haute Couture)',
-    badge: 'Haute Couture & Editorial Strategy',
-    tagline: 'Ngôn ngữ thị giác thời trang xa xỉ, nghệ thuật typography Avant-Garde và các case study chiến dịch toàn cầu đạt chuẩn tạp chí quốc tế.',
+    id: 'phuongdung-art',
+    title: 'Hoàng Lê Phương Dung',
+    category: 'Giám Đốc Nghệ Thuật & Quảng Cáo Sáng Tạo (Art Direction)',
+    badge: 'Art Direction & Lifestyle Branding',
+    tagline: 'Kể chuyện bằng hình ảnh, chỉ đạo nghệ thuật thời trang và xây dựng thương hiệu phong cách sống cao cấp với tinh thần Avant-Garde.',
     iconType: 'creative',
-    client: 'Hoàng Lê Phương Dung — Creative Advertising & Fashion Visuals',
+    client: 'Hoàng Lê Phương Dung (Olivia Hoang) — Art Director',
     year: '2024 — 2026',
-    role: 'Creative Director & Fashion Art Strategist',
+    role: 'Art Director & Strategic Storyteller',
     duration: '4 Tuần',
-    accentColor: '#ec4899',
+    accentColor: '#f472b6',
     previewType: 'creative-director',
     stats: [
-      { label: 'Giá trị hợp đồng Retainer', value: '+450%' },
-      { label: 'Ấn phẩm quốc tế xuất bản', value: '14 Tạp Chí' },
-      { label: 'Đánh giá hài lòng thương hiệu', value: '100%' }
+      { label: 'Tỷ Lệ Mua Lại Carne', value: '2-3 Tháng/Lần' },
+      { label: 'Điểm Đồ Án RMIT', value: '91% HD' },
+      { label: 'Chiến Dịch Toàn Cầu', value: '12+ Dự Án' }
     ],
-    overview: "Maison De L'Art được thiết kế cho các Giám đốc Nghệ thuật, Fashion Stylist và Creative Lead cao cấp. Bố cục phá vỡ sự nhàm chán của web truyền thống bằng phong cách Tạp chí Nghệ thuật (High-Fashion Editorial), kết hợp typography tương phản cao, badge cá tính và case study toàn cầu với các đối tác lớn như LEGO, RMIT Studio, Choices Flooring.",
+    overview: 'Portfolio nghệ thuật đỉnh cao của Hoàng Lê Phương Dung (Olivia Hoang) - cử nhân Truyền thông Chuyên nghiệp (Quảng cáo) tại RMIT University và Nhà sáng lập kiêm Giám đốc Nghệ thuật của thương hiệu phong cách sống Carne Gemstone. Trang web kết hợp phong cách tạp chí nghệ thuật (Editorial Lookbook), tương phản typography mạnh mẽ và các case study thương hiệu lớn.',
     highlights: [
-      'Bố cục Tạp chí Nghệ thuật High-End với nghệ thuật Typography Avant-Garde',
-      'Bộ sưu tập Case Studies thương hiệu: LEGO, Choices Flooring, Who Gives A Crap',
-      'Dự án Fashion Visuals cho các nhãn hàng thời trang độc lập nội địa & quốc tế',
-      'Chứng thực uy tín thông qua bảo chứng khách hàng và các giải thưởng sáng tạo'
+      'Sáng lập & Art Director thương hiệu CARNE GEMSTONE: Xây dựng nhận diện, bao bì, chuyển đổi 371 followers thành khách hàng mua lặp lại',
+      'Chiến dịch sáng tạo thương hiệu toàn cầu: LEGO (Build the World You Imagine), Choices Flooring (Room to Live), Who Gives A Crap',
+      'Đồ án RMIT xuất sắc: 91% HD TV & Screen Culture, 87% HD RMIT Library Transnational Student Experience Project',
+      'Chỉ đạo nghệ thuật Lookbook thời trang cho các Local Independent Labels nội địa'
     ],
     deliverables: [
-      'Giao diện Portfolio phong cách Editorial Luxury tương thích hoàn hảo thiết bị',
-      'Hệ thống trưng bày Lookbook thời trang & TVC phân giải cực cao',
-      'Thư viện hồ sơ năng lực (Media Kit & Press Kit) tải nhanh một chạm',
-      'Định vị thương hiệu cá nhân đẳng cấp Giám đốc Sáng tạo quốc tế'
+      'Giao diện Portfolio phong cách High-Fashion Editorial sang trọng, duy mỹ',
+      'Hệ thống phân trang Case Study với Lookbook chất lượng cao và Rationale thiết kế',
+      'Showcase thương hiệu khởi nghiệp (Startup Showcase) kèm dữ liệu tăng trưởng',
+      'Chứng chỉ chuyên môn quốc tế HubSpot Social Media Marketing Certification'
     ],
-    technologies: ['React 19', 'Tailwind CSS', 'Framer Motion', 'TypeScript', 'Vite', 'Editorial Tokens'],
+    technologies: ['Art Direction', 'Visual Storytelling', 'Adobe Creative Cloud', 'Lookbook Curation', 'Set Architecture', 'Brand Identity'],
     demoUrl: 'https://port-hoang-le-phuong-dung.vercel.app/',
     systemMetrics: [
-      { label: 'Global Brands', value: '12+ Brands', desc: 'Hợp tác cùng LEGO, RMIT, Choices Flooring' },
-      { label: 'Editorial Features', value: '14 Issues', desc: 'Xuất hiện trên các tạp chí thời trang uy tín' },
-      { label: 'Campaign ROI', value: '3.8x', desc: 'Hiệu quả gia tăng doanh số chiến dịch' },
-      { label: 'Visual Precision', value: 'Pixel Perfect', desc: 'Tỷ lệ bố cục vàng theo tiêu chuẩn in ấn' }
+      { label: 'Startup Growth', value: '371 Loyal Buyers', desc: 'Chuyển đổi follower thành khách hàng thân thiết' },
+      { label: 'Academic Distinction', value: '91% High Distinction', desc: 'Điểm xuất sắc cao nhất chuyên ngành RMIT' },
+      { label: 'Global Brands', value: 'LEGO, Choices Flooring', desc: 'Chiến dịch thương hiệu quốc tế tiêu biểu' },
+      { label: 'Social Certification', value: 'HubSpot Academy', desc: 'Social Media Marketing Certification' }
     ],
     architectureNodes: [
-      { step: 'Creative Brief', detail: 'Khám phá ADN thương hiệu & Định hướng nghệ thuật cốt lõi' },
-      { step: 'Moodboard & Stylism', detail: 'Xây dựng bảng màu, chất liệu và phong cách ánh sáng' },
-      { step: 'Production Shooting', detail: 'Chỉ đạo nghệ thuật buổi chụp Lookbook & TVC thời trang' },
-      { step: 'Editorial Layout', detail: 'Thiết kế bố cục ấn phẩm, Catalogue & Chiến dịch Digital' }
+      { step: 'Creative Brief', detail: 'Nghiên cứu tâm lý người tiêu dùng & Định vị ADN thương hiệu' },
+      { step: 'Visual Direction & Set', detail: 'Xây dựng Moodboard, Concept ánh sáng & Kiến trúc bối cảnh' },
+      { step: 'Shoot Production', detail: 'Chỉ đạo nghệ thuật chụp Lookbook, TVC & Commercial Photography' },
+      { step: 'Campaign Rollout', detail: 'Thiết kế bố cục Editorial, Social Assets & Đánh giá chuyển đổi' }
     ],
     galleryImages: [
       {
-        url: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=80',
-        title: 'Haute Couture Editorial — Nghệ thuật ánh sáng & Bố cục không gian',
-        tag: 'Fashion Editorial'
+        url: 'https://port-hoang-le-phuong-dung.vercel.app/images/Marketercontest/IMG_5952.webp',
+        title: 'Marketer Contest — Insight Oracle Chiến Lược Định Vị Sáng Tạo',
+        tag: 'Campaign Strategy'
       },
       {
-        url: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80',
-        title: 'Chiến dịch nhận diện thương hiệu cho Local Independent Labels',
-        tag: 'Brand Campaign'
+        url: 'https://port-hoang-le-phuong-dung.vercel.app/images/quick-brief-03/img1.avif',
+        title: 'LEGO Group — Build the World You Imagine Creative Concept',
+        tag: 'Brand Storytelling'
       },
       {
-        url: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80',
-        title: 'Bộ sưu tập Lookbook thời trang phong cách Avant-Garde đương đại',
-        tag: 'Lookbook Gallery'
+        url: 'https://port-hoang-le-phuong-dung.vercel.app/images/who-gives-a-crap/imag1.avif',
+        title: 'Who Gives A Crap — Good for your bum, great for the world',
+        tag: 'Creative Copywriting'
       }
     ]
   },
   {
-    id: 'voxel-spatial',
-    title: 'Voxel Vanguard',
-    category: 'Kiến Trúc Không Gian & Tính Toán 3D (Spatial Architecture)',
-    badge: 'Parametric & Spatial Computing',
-    tagline: 'Bản vẽ kiến trúc kỹ thuật Vector 3D tương tác, phô diễn kết cấu Brutalism nguyên khối và không gian nội thất đương đại.',
-    iconType: 'architect',
-    client: 'Studio Kiến Trúc Hoàng Vũ & Partners',
+    id: 'vananh-strategy',
+    title: 'Võ Lê Vân Anh',
+    category: 'Chiến Lược Thương Hiệu & Marketing Executive',
+    badge: 'Brand Planning & Growth Marketing',
+    tagline: 'Xây dựng chiến lược thương hiệu dựa trên Consumer Insights, dẫn dắt tăng trưởng TikTok triệu view và điều phối dự án bao bì xuất khẩu quốc tế.',
+    iconType: 'executive',
+    client: 'Võ Lê Vân Anh (Van Anh) — Marketing Executive',
     year: '2024 — 2026',
-    role: 'Spatial Computing & Architecture Showcase',
-    duration: '5 Tuần',
-    accentColor: '#0f172a',
-    previewType: 'architect',
+    role: 'Brand Planner & Marketing Executive',
+    duration: '4 Tuần',
+    accentColor: '#fbbf24',
+    previewType: 'executive',
     stats: [
-      { label: 'Thời gian tương tác trang', value: '5m 24s' },
-      { label: 'Độ chuẩn xác bản vẽ 3D', value: '100% Vector' },
-      { label: 'Hợp đồng kiến trúc cao cấp', value: '+55%' }
+      { label: 'Tăng Trưởng TikTok H&L', value: '+468% Reach' },
+      { label: 'Video Viral Highlands', value: '1.4M Views' },
+      { label: 'Chứng Chỉ Ngoại Ngữ', value: 'TOEIC 830' }
     ],
-    overview: 'Voxel Vanguard là biểu tượng cho dòng portfolio Kiến trúc sư và Thiết kế nội thất đương đại. Với phong cách Brutalism tối giản kết hợp mô hình không gian tương tác, mọi công trình kiến trúc đều được làm nổi bật thông qua các góc nhìn mặt cắt 3D, vật liệu ánh sáng chân thực và thông số kết cấu chính xác.',
+    overview: 'Portfolio chuyên gia Marketing Executive & Brand Planner của Võ Lê Vân Anh (Học viên Thạc sĩ Marketing Ứng dụng tại Đại học UEH). Điểm nhấn là năng lực kết nối nhạy bén giữa nghiên cứu hành vi khách hàng và thực thi đa kênh: từ tăng trưởng bùng nổ kênh TikTok cho chuỗi F&B và Highlands Coffee, chiến dịch Influencer cho Maybelline tại Brainad Agency, đến điều phối sản xuất bao bì chuẩn ISO cho khách hàng toàn cầu tại Toàn Phát.',
     highlights: [
-      'Giao diện bản vẽ kỹ thuật phân giải cao không vỡ nét (Vector Blueprint)',
-      'Chế độ xem mặt cắt công trình đa chiều với tỷ lệ không gian thực',
-      'Thư viện vật liệu kiến trúc (Bê tông nguyên khối, Kính cường lực, Gỗ tự nhiên)',
-      'Hệ thống quản lý dự án công trình trực quan phân tầng theo tiến độ'
+      'H&L Concept: Dẫn dắt MarCom & Trade Marketing cho Men Quán và Renge Ramen, tăng +468.36% reach (162K users) và +304.33% views (185K views) trong 12 tuần',
+      'Highlands Coffee: Quản trị kênh TikTok, video viral đạt 1.4 triệu views, tăng trưởng +12.73% follower và +317% lượt chia sẻ',
+      'Toàn Phát Packaging: Điều phối dự án cho khách hàng toàn cầu FengTay (Taiwan), EMSV (USA), QuickPack (Germany), HoyaLens (Japan), chuẩn ISO 14001:2015',
+      'Brainad Agency: Lập kế hoạch & thực thi chiến dịch KOL/KOC cho Maybelline New York, Modern Concert 2024 x Hakuhodo, Crocs',
+      'Đạt Giải B Nghiên cứu khoa học cấp Trường tại UEH (2 đề tài về Hành vi tiêu dùng thực tế ảo & Stress Gen Z)',
+      'Chiến dịch Tết #NétMớiLook cho HMK Eyewear & TVC Mậu Thân 1968 lọt Top 20 Vòng 3 Bảo tàng Lịch sử TP.HCM'
     ],
     deliverables: [
-      'Portfolio kiến trúc 3D không gian tương tác cao',
-      'Bộ tài liệu hồ sơ năng lực số dành cho các dự án bất động sản hạng sang',
-      'Tối ưu hóa hiển thị mượt mà trên iPad Pro và màn hình 4K',
-      'Hệ thống liên hệ đặt lịch khảo sát công trình tự động'
+      'Giao diện Portfolio tương tác trẻ trung, hiện đại chuẩn Agency',
+      'Báo cáo phân tích số liệu tăng trưởng tương tác thực tế (TikTok Analytics Matrix)',
+      'Sơ đồ quy trình sản xuất bao bì công nghiệp (Design → Sampling → Production → QA)',
+      'Showcase chiến dịch Influencer Marketing tích hợp Key Visuals và Video Reels'
     ],
-    technologies: ['React 19', 'Tailwind CSS', 'Three.js', 'WebGL', 'TypeScript', 'Vite'],
-    demoUrl: 'https://letruongconghieu.click/',
+    technologies: ['Brand Strategy', 'Influencer Marketing', 'TikTok Growth Engine', 'Trade Marketing', 'Consumer Insights', 'Packaging R&D', 'Campaign Execution'],
+    demoUrl: 'https://itsvananh.vercel.app/',
     systemMetrics: [
-      { label: 'Blueprint Precision', value: '0.01mm', desc: 'Độ chuẩn xác hiển thị bản vẽ CAD' },
-      { label: 'Rendering Frame', value: '60 FPS', desc: 'Trải nghiệm không gian mượt mà' },
-      { label: 'Client Engagement', value: '5m 24s', desc: 'Thời lượng xem chi tiết dự án' },
-      { label: 'Contract Conversion', value: '+55%', desc: 'Tăng trưởng tỷ lệ ký kết dự án lớn' }
+      { label: 'TikTok Reach', value: '+468.36%', desc: 'Tăng trưởng tiếp cận 162K người dùng H&L' },
+      { label: 'Viral Peak', value: '1.4M Views', desc: 'Kỷ lục video viral kênh Highlands Coffee' },
+      { label: 'Global Clients', value: '4 Quốc Gia', desc: 'Bao bì xuất khẩu Mỹ, Đức, Nhật, Đài Loan' },
+      { label: 'Academic Prize', value: 'Giải B NCKH', desc: '2 đề tài đoạt giải Nghiên cứu khoa học UEH' }
     ],
     architectureNodes: [
-      { step: 'Site Survey', detail: 'Khảo sát địa hình, hướng nắng & cảnh quan sinh thái' },
-      { step: 'Spatial Concept', detail: 'Phác thảo khối Brutalism & Phân bổ công năng không gian' },
-      { step: '3D Simulation', detail: 'Mô phỏng ánh sáng, gió tự nhiên & Vật liệu chịu lực' },
-      { step: 'Blueprint Handover', detail: 'Hoàn thiện hồ sơ kỹ thuật thi công & Giám sát thực tế' }
+      { step: 'Consumer Insight', detail: 'Nghiên cứu hành vi người tiêu dùng, dữ liệu tâm lý & giải mã động cơ mua' },
+      { step: 'Strategy & Concept', detail: 'Xây dựng thông điệp chủ đạo (Big Idea) & kế hoạch truyền thông tích hợp IMC' },
+      { step: 'Execution & Growth', detail: 'Sản xuất nội dung ngắn TikTok/Reels, điều phối KOL/KOC & kích hoạt điểm bán' },
+      { step: 'Data & R&D Scaling', detail: 'Đo lường hiệu quả chuyển đổi (Reach/Engagement), QA sản xuất bao bì chuẩn ISO' }
     ],
     galleryImages: [
       {
-        url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
-        title: 'Biệt thự nghỉ dưỡng phong cách Brutalism tối giản ven biển',
-        tag: 'Spatial Villa'
+        url: 'https://itsvananh.vercel.app/assets/highland%20(2)-DcT2OaBk.png',
+        title: 'Highlands Coffee TikTok Performance & Community Engagement',
+        tag: 'Viral Social Strategy'
       },
       {
-        url: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
-        title: 'Không gian nội thất thông tầng với ánh sáng tự nhiên đa góc độ',
-        tag: 'Interior Spatial'
+        url: 'https://itsvananh.vercel.app/assets/brainagentcy%20(1)-D7_wK3Bh.png',
+        title: 'Highlands Spring Campaign — Influencer Marketing Key Visual',
+        tag: 'Campaign Activation'
       },
       {
-        url: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80',
-        title: 'Bản vẽ kỹ thuật mặt cắt không gian & Sơ đồ vật liệu kết cấu',
-        tag: 'Technical Plan'
+        url: 'https://itsvananh.vercel.app/assets/brainagentcy%20(6)-C6RUaj83.png',
+        title: 'Modern Concert 2024 x Hakuhodo — Event & Brand Collaboration',
+        tag: 'Brand Partnership'
       }
     ]
   }
 ];
-
