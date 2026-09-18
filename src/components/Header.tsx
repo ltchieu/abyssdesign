@@ -5,7 +5,11 @@ import { faCommentDots } from '@fortawesome/free-regular-svg-icons';
 import { PillNav, PillNavItem } from './PillNav';
 import { CONTACT_DATA } from '../data/contactData';
 
-export const Header: React.FC = () => {
+interface HeaderProps {
+  isVisible?: boolean;
+}
+
+export const Header: React.FC<HeaderProps> = ({ isVisible = true }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('about');
 
@@ -44,10 +48,13 @@ export const Header: React.FC = () => {
   return (
     <header
       id="main-header"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 pointer-events-none ${isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8 pointer-events-none'
+      } ${
+        isScrolled
           ? 'py-2.5 sm:py-3 bg-[#fafafa]/90 backdrop-blur-lg border-b border-neutral-200/60 shadow-xs'
           : 'py-4 sm:py-5 bg-transparent'
-        }`}
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between pointer-events-auto">
 

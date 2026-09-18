@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SmoothScrollProvider } from './components/SmoothScrollProvider';
 import { AbyssalLoader } from './components/AbyssalLoader';
 import { Header } from './components/Header';
@@ -15,6 +15,19 @@ import { CONTACT_DATA } from './data/contactData';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isUnfurled, setIsUnfurled] = useState(false);
+
+  // Lock scroll during pre-loading stage
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isLoading]);
 
   const handleScrollToSection = (sectionId: string) => {
     const el = document.getElementById(sectionId);
@@ -29,54 +42,73 @@ export default function App() {
 
   return (
     <SmoothScrollProvider>
-      {/* Abyssal 0 -> 100% Loader with Official Logo */}
+      {/* Abyssal 3D Loader with Telemetry HUD & Seamless Threads Unfurl */}
       {isLoading && (
-        <AbyssalLoader onComplete={() => setIsLoading(false)} />
+        <AbyssalLoader
+          onUnfurl={() => setIsUnfurled(true)}
+          onComplete={() => setIsLoading(false)}
+        />
       )}
 
-      {/* True Fixed Navigation Header - Anchored to Viewport */}
-      <Header />
+      {/* True Fixed Navigation Header - Anchored to Viewport with smooth reveal */}
+      <Header isVisible={isUnfurled} />
 
-      {/* Main Website Wrapper with Clean Opacity Transition (No transforms that break fixed positioning) */}
-      <div
-        className={`min-h-screen bg-[#fafafa] text-[#111827] flex flex-col font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[#0284c7] selection:text-white transition-opacity duration-700 ease-out ${
-          isLoading ? 'opacity-0 pointer-events-none' : 'opacity-100'
-        }`}
-      >
+      {/* Main Website Wrapper with continuous Threads WebGL background */}
+      <div className="min-h-screen bg-[#fafafa] text-[#111827] flex flex-col font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[#0284c7] selection:text-white">
         {/* Main Content Sections */}
         <main className="flex-1">
-          {/* 1. Hero Section */}
+          {/* 1. Hero Section - holds the live Threads WebGL canvas */}
           <Hero
+            isLoaded={isUnfurled}
             onStartProject={handleOpenZalo}
             onExploreWork={() => handleScrollToSection('portfolio')}
             onViewPricing={() => handleScrollToSection('pricing')}
           />
 
-          {/* 2. About the Web Developer Section */}
-          <AboutDeveloper />
+          {/* Subsequent Sections fade in smoothly when unfurled */}
+          <div
+            className={`transition-opacity duration-1000 ease-out ${
+              isUnfurled ? 'opacity-100' : 'opacity-0 pointer-events-none'
+            }`}
+          >
+            {/* 2. About the Web Developer Section */}
+            <AboutDeveloper />
 
-          {/* 3. Recent Work Showcase */}
-          <RecentWork />
+            {/* 3. Recent Work Showcase */}
+            <RecentWork />
 
-          {/* 4. What You'll Receive */}
-          <WhatYouReceive />
+            {/* 4. What You'll Receive */}
+            <WhatYouReceive />
 
-          {/* 5. Alternating 4-Step Process Pipeline */}
-          <OurProcess />
+            {/* 5. Alternating 4-Step Process Pipeline */}
+            <OurProcess />
 
-          {/* 6. Transparent Pricing Packages */}
-          <PricingPackages />
+            {/* 6. Transparent Pricing Packages */}
+            <PricingPackages />
 
-          {/* 7. Ready to Build CTA Banner */}
-          <CtaBanner />
+            {/* 7. Ready to Build CTA Banner */}
+            <CtaBanner />
+          </div>
         </main>
 
         {/* Footer with Logo & Contact Info */}
-        <Footer />
+        <div
+          className={`transition-opacity duration-1000 ease-out ${
+            isUnfurled ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          }`}
+        >
+          <Footer />
+        </div>
       </div>
 
       {/* True Fixed Floating Zalo Widget - Floats above entire viewport */}
-      <FloatingZalo />
+      <div
+        className={`transition-all duration-700 delay-300 ${
+          isUnfurled ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 pointer-events-none'
+        }`}
+      >
+        <FloatingZalo />
+      </div>
     </SmoothScrollProvider>
   );
 }

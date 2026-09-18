@@ -224,15 +224,23 @@ export const Threads: React.FC<ThreadsProps> = ({
     }
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
+    // Smooth interpolation so when amplitude or distance changes (e.g. loader -> hero unfurl),
+    // the wave morphs organically over ~600-800ms without jumps.
+    let currentAmplitude = propsRef.current.amplitude;
+    let currentDistance = propsRef.current.distance;
+
     function update(t: number) {
       animationFrameId.current = requestAnimationFrame(update);
       if (document.hidden) return;
 
       const { color, amplitude, distance, enableMouseInteraction } = propsRef.current;
 
+      currentAmplitude += (amplitude - currentAmplitude) * 0.045;
+      currentDistance += (distance - currentDistance) * 0.045;
+
       program.uniforms.uColor.value.set(...color);
-      program.uniforms.uAmplitude.value = amplitude;
-      program.uniforms.uDistance.value = distance;
+      program.uniforms.uAmplitude.value = currentAmplitude;
+      program.uniforms.uDistance.value = currentDistance;
 
       if (enableMouseInteraction) {
         const smoothing = 0.05;
