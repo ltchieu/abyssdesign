@@ -6,7 +6,6 @@ import {
   faXmark
 } from '@fortawesome/free-solid-svg-icons';
 import { faCommentDots } from '@fortawesome/free-regular-svg-icons';
-import { faLinkedin, faBehance } from '@fortawesome/free-brands-svg-icons';
 import { FOOTER_LINKS } from '../data/footerData';
 import { CONTACT_DATA } from '../data/contactData';
 
@@ -70,24 +69,6 @@ export const Footer: React.FC = () => {
             >
               Điều khoản dịch vụ
             </button>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-neutral-900 transition-colors flex items-center gap-1"
-            >
-              <FontAwesomeIcon icon={faLinkedin} />
-              <span>LinkedIn</span>
-            </a>
-            <a
-              href="https://behance.net"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-neutral-900 transition-colors flex items-center gap-1"
-            >
-              <FontAwesomeIcon icon={faBehance} />
-              <span>Behance</span>
-            </a>
           </div>
 
           {/* Right Copyright */}

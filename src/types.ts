@@ -16,6 +16,7 @@ export interface Project {
   technologies: string[];
   accentColor: string;
   previewType: 'developer' | 'marketing' | 'creative-director' | 'architect' | 'executive';
+  avatarUrl?: string;
   demoUrl?: string;
   githubUrl?: string;
   systemMetrics?: { label: string; value: string; desc: string }[];

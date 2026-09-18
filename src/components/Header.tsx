@@ -44,14 +44,13 @@ export const Header: React.FC = () => {
   return (
     <header
       id="main-header"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 pointer-events-none ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 pointer-events-none ${isScrolled
           ? 'py-2.5 sm:py-3 bg-[#fafafa]/90 backdrop-blur-lg border-b border-neutral-200/60 shadow-xs'
           : 'py-4 sm:py-5 bg-transparent'
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between pointer-events-auto">
-        
+
         {/* Brand Logo with Official ABYSS Emblem (Restored to original state) */}
         <a
           id="brand-logo"
@@ -85,7 +84,7 @@ export const Header: React.FC = () => {
             activePillBg="linear-gradient(135deg, #00f5d4 0%, #0284c7 35%, #2563eb 70%, #4338ca 100%)"
             activePillTextColor="#ffffff"
             ease="power2.easeOut"
-            initialLoadAnimation={true}
+            initialLoadAnimation={false}
           />
         </div>
 

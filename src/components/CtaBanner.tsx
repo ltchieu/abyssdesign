@@ -59,14 +59,6 @@ export const CtaBanner: React.FC = () => {
               <span>Liên Hệ Zalo: {CONTACT_DATA.formattedPhone}</span>
               <FontAwesomeIcon icon={faArrowRight} className="text-xs transition-transform duration-300 group-hover:translate-x-1" />
             </a>
-
-            <button
-              type="button"
-              onClick={handleScrollToPricing}
-              className="cursor-pointer bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 text-[14.5px] font-semibold px-7 py-3.5 rounded-full transition-all"
-            >
-              <span>Xem Bảng Giá & Quy Trình</span>
-            </button>
           </div>
 
           <p className="mt-6 text-xs text-neutral-500 font-mono">

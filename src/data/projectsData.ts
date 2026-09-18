@@ -14,6 +14,7 @@ export const PROJECTS: Project[] = [
     duration: '4 Tuần',
     accentColor: '#38bdf8',
     previewType: 'developer',
+    avatarUrl: '/images/projects/hieu-hero.png',
     stats: [
       { label: 'Điểm GPA Đại Học', value: '3.46 / 4.0' },
       { label: 'Học Bổng Học Thuật', value: '4 Học Kỳ' },
@@ -49,19 +50,19 @@ export const PROJECTS: Project[] = [
     ],
     galleryImages: [
       {
-        url: 'https://letruongconghieu.click/assets/shrimp-management-BHHkJBD8.png',
-        title: 'Hệ Thống Quản Lý Tôm Giống — Supply Chain & Inventory',
-        tag: 'Java 17 & Spring Boot'
+        url: '/images/projects/hieu-detail-1.png',
+        title: 'Giao Diện Không Gian 3D Tương Tác — Định Danh Developer',
+        tag: '3D Space Hero'
       },
       {
-        url: 'https://letruongconghieu.click/assets/qltt-admin-CINBs4QQ.png',
-        title: 'Quản Lý Trung Tâm Ngoại Ngữ — Admin Dashboard Interface',
-        tag: 'React & Material UI'
+        url: '/images/projects/hieu-detail-2.png',
+        title: 'Dự Án Thực Chiến — Hệ Thống Quản Lý Tôm Giống & Trung Tâm Ngoại Ngữ',
+        tag: 'Production Applications'
       },
       {
-        url: 'https://letruongconghieu.click/assets/realtime-chat-waM2pX2I.png',
-        title: 'Realtime Chat Application — WebSocket & Live Messaging',
-        tag: 'Realtime Gateway'
+        url: '/images/projects/hieu-detail-3.png',
+        title: 'Học Thuật & Kinh Nghiệm — Sài Gòn Lab & Học Bổng Xuất Sắc HUIT',
+        tag: 'Career & Education'
       }
     ]
   },
@@ -78,6 +79,7 @@ export const PROJECTS: Project[] = [
     duration: '4 Tuần',
     accentColor: '#c084fc',
     previewType: 'marketing',
+    avatarUrl: '/images/projects/khanh-hero.png',
     stats: [
       { label: 'Học Bổng Thạc Sĩ UK', value: '£6,000' },
       { label: 'Chứng Chỉ Ngoại Ngữ', value: 'IELTS B2' },
@@ -112,19 +114,19 @@ export const PROJECTS: Project[] = [
     ],
     galleryImages: [
       {
-        url: 'https://portfolio-minhkhanh.vercel.app/assets/avatar-D5jmBeCU.JPG',
-        title: 'Hồ sơ chân dung Mia Nguyen — Brand & Marketing Communications',
-        tag: 'Identity & Manifesto'
+        url: '/images/projects/khanh-detail-1.png',
+        title: 'Editorial Manifesto — Nhận Diện & Định Vị Thương Hiệu Mia Nguyen',
+        tag: 'Brand & MarCom Hero'
       },
       {
-        url: 'https://portfolio-minhkhanh.vercel.app/assets/RBL%20Certificate%20(2)-DxZGf95X.webp',
-        title: 'Chứng nhận Chiến lược Fullstack Marketing Management — RBL Academy',
-        tag: 'Professional Certification'
+        url: '/images/projects/khanh-detail-2.png',
+        title: 'Selected Works — Sản Xuất Phim Ngắn Điện Ảnh The Shadow',
+        tag: 'Creative Film Production'
       },
       {
-        url: 'https://portfolio-minhkhanh.vercel.app/assets/USW%20SEA%20Scholarship%20Interview-DkbYZpXr.webp',
-        title: 'Học bổng Sau đại học £6,000 — University of South Wales, UK',
-        tag: 'International Award'
+        url: '/images/projects/khanh-detail-3.png',
+        title: 'Bảng Thành Tích & Chứng Chỉ — Học Bổng £6,000 UK & IELTS Academic',
+        tag: 'Honors & Distinctions'
       }
     ]
   },
@@ -141,6 +143,7 @@ export const PROJECTS: Project[] = [
     duration: '4 Tuần',
     accentColor: '#f472b6',
     previewType: 'creative-director',
+    avatarUrl: '/images/projects/dung-hero.png',
     stats: [
       { label: 'Tỷ Lệ Mua Lại Carne', value: '2-3 Tháng/Lần' },
       { label: 'Điểm Đồ Án RMIT', value: '91% HD' },
@@ -175,19 +178,19 @@ export const PROJECTS: Project[] = [
     ],
     galleryImages: [
       {
-        url: 'https://port-hoang-le-phuong-dung.vercel.app/images/Marketercontest/IMG_5952.webp',
-        title: 'Marketer Contest — Insight Oracle Chiến Lược Định Vị Sáng Tạo',
-        tag: 'Campaign Strategy'
+        url: '/images/projects/dung-detail-1.png',
+        title: 'High-Fashion Editorial Portfolio — Chân Dung & Nhận Diện Olivia Hoang',
+        tag: 'Art Direction Hero'
       },
       {
-        url: 'https://port-hoang-le-phuong-dung.vercel.app/images/quick-brief-03/img1.avif',
-        title: 'LEGO Group — Build the World You Imagine Creative Concept',
-        tag: 'Brand Storytelling'
+        url: '/images/projects/dung-detail-2.png',
+        title: 'Selected Projects — Chiến Dịch LEGO, Marketer Contest & RMIT Pride',
+        tag: 'Creative Campaigns'
       },
       {
-        url: 'https://port-hoang-le-phuong-dung.vercel.app/images/who-gives-a-crap/imag1.avif',
-        title: 'Who Gives A Crap — Good for your bum, great for the world',
-        tag: 'Creative Copywriting'
+        url: '/images/projects/dung-detail-3.png',
+        title: 'Startup & Brand Building — Thương Hiệu Phong Cách Sống Carne Gemstone',
+        tag: 'Brand Identity & Visuals'
       }
     ]
   },
@@ -204,6 +207,7 @@ export const PROJECTS: Project[] = [
     duration: '4 Tuần',
     accentColor: '#fbbf24',
     previewType: 'executive',
+    avatarUrl: '/images/projects/vananh-hero.png',
     stats: [
       { label: 'Tăng Trưởng TikTok H&L', value: '+468% Reach' },
       { label: 'Video Viral Highlands', value: '1.4M Views' },
@@ -240,19 +244,19 @@ export const PROJECTS: Project[] = [
     ],
     galleryImages: [
       {
-        url: 'https://itsvananh.vercel.app/assets/highland%20(2)-DcT2OaBk.png',
-        title: 'Highlands Coffee TikTok Performance & Community Engagement',
-        tag: 'Viral Social Strategy'
+        url: '/images/projects/vananh-detail-1.png',
+        title: 'Executive Portfolio Hero — Marketing Executive 2024-2026',
+        tag: 'Brand Planning Hero'
       },
       {
-        url: 'https://itsvananh.vercel.app/assets/brainagentcy%20(1)-D7_wK3Bh.png',
-        title: 'Highlands Spring Campaign — Influencer Marketing Key Visual',
-        tag: 'Campaign Activation'
+        url: '/images/projects/vananh-detail-2.png',
+        title: 'Highlands Coffee TikTok Journey — Tăng Trưởng Triệu View & Follower',
+        tag: 'TikTok Growth Engine'
       },
       {
-        url: 'https://itsvananh.vercel.app/assets/brainagentcy%20(6)-C6RUaj83.png',
-        title: 'Modern Concert 2024 x Hakuhodo — Event & Brand Collaboration',
-        tag: 'Brand Partnership'
+        url: '/images/projects/vananh-detail-3.png',
+        title: 'Brainad Agency — Chiến Dịch Maybelline New York & Modern Concert',
+        tag: 'Influencer & IMC Campaigns'
       }
     ]
   }

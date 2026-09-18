@@ -3,17 +3,13 @@ import { motion, AnimatePresence } from 'motion/react';
 import Grid from '@mui/material/Grid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faServer,
   faGaugeHigh,
-  faShieldHalved,
   faNetworkWired,
-  faCodeBranch,
   faTerminal,
   faBolt,
   faArrowRight,
   faCircleCheck,
-  faDatabase,
-  faCloud
+
 } from '@fortawesome/free-solid-svg-icons';
 import { Project } from '../../types';
 
@@ -37,11 +33,10 @@ export const ProjectBlueprintView: React.FC<ProjectBlueprintViewProps> = ({ proj
               key={proj.id}
               type="button"
               onClick={() => setActiveProjectId(proj.id)}
-              className={`cursor-pointer whitespace-nowrap px-4 py-2 rounded-full text-[13px] font-medium transition-all duration-300 flex items-center gap-2 border ${
-                isActive
-                  ? 'bg-neutral-900 text-white border-neutral-900 shadow-sm'
-                  : 'bg-white text-neutral-600 border-neutral-200/80 hover:border-neutral-300 hover:text-neutral-900'
-              }`}
+              className={`cursor-pointer whitespace-nowrap px-4 py-2 rounded-full text-[13px] font-medium transition-all duration-300 flex items-center gap-2 border ${isActive
+                ? 'bg-neutral-900 text-white border-neutral-900 shadow-sm'
+                : 'bg-white text-neutral-600 border-neutral-200/80 hover:border-neutral-300 hover:text-neutral-900'
+                }`}
             >
               <FontAwesomeIcon
                 icon={proj.iconType === 'developer' ? faTerminal : proj.iconType === 'marketing' ? faBolt : faNetworkWired}
@@ -49,9 +44,8 @@ export const ProjectBlueprintView: React.FC<ProjectBlueprintViewProps> = ({ proj
               />
               <span>{proj.title}</span>
               <span
-                className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono ${
-                  isActive ? 'bg-white/20 text-white' : 'bg-neutral-100 text-neutral-500'
-                }`}
+                className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono ${isActive ? 'bg-white/20 text-white' : 'bg-neutral-100 text-neutral-500'
+                  }`}
               >
                 {proj.year}
               </span>
@@ -72,7 +66,7 @@ export const ProjectBlueprintView: React.FC<ProjectBlueprintViewProps> = ({ proj
           >
             {/* Inner Blueprint Sheet */}
             <div className="rounded-[calc(2.2rem-0.625rem)] border border-neutral-200/70 bg-gradient-to-b from-neutral-50/90 via-white to-white p-6 sm:p-8">
-              
+
               {/* Header Meta Strip */}
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-neutral-200/80">
                 <div>
@@ -103,11 +97,11 @@ export const ProjectBlueprintView: React.FC<ProjectBlueprintViewProps> = ({ proj
               {/* Sub-Layout using MUI Grid v2 */}
               <div className="mt-8">
                 <Grid container spacing={4}>
-                  
+
                   {/* Left Column: Architecture Pipeline & Highlights */}
                   <Grid size={{ xs: 12, lg: 7 }}>
                     <div className="space-y-6">
-                      
+
                       {/* Architecture Pipeline Flow */}
                       <div>
                         <h4 className="text-[14px] font-bold text-neutral-900 uppercase tracking-wider mb-4 flex items-center gap-2">
@@ -134,10 +128,10 @@ export const ProjectBlueprintView: React.FC<ProjectBlueprintViewProps> = ({ proj
                               </p>
                             </div>
                           )) || (
-                            <div className="p-4 bg-neutral-50 rounded-xl text-[13px] text-neutral-500">
-                              Đang chuẩn bị sơ đồ kiến trúc chi tiết.
-                            </div>
-                          )}
+                              <div className="p-4 bg-neutral-50 rounded-xl text-[13px] text-neutral-500">
+                                Đang chuẩn bị sơ đồ kiến trúc chi tiết.
+                              </div>
+                            )}
                         </div>
                       </div>
 
@@ -164,7 +158,7 @@ export const ProjectBlueprintView: React.FC<ProjectBlueprintViewProps> = ({ proj
                   {/* Right Column: Performance Benchmark Matrix & Tech Stack */}
                   <Grid size={{ xs: 12, lg: 5 }}>
                     <div className="p-5 rounded-2xl bg-neutral-900 text-white flex flex-col justify-between h-full shadow-md">
-                      
+
                       {/* Top Metrics Grid */}
                       <div>
                         <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
@@ -191,17 +185,17 @@ export const ProjectBlueprintView: React.FC<ProjectBlueprintViewProps> = ({ proj
                               </div>
                             </div>
                           )) || (
-                            activeProject.stats.map((s) => (
-                              <div key={s.label} className="p-3 rounded-xl bg-white/5 border border-white/10">
-                                <div className="text-[20px] font-bold font-mono text-white">
-                                  {s.value}
+                              activeProject.stats.map((s) => (
+                                <div key={s.label} className="p-3 rounded-xl bg-white/5 border border-white/10">
+                                  <div className="text-[20px] font-bold font-mono text-white">
+                                    {s.value}
+                                  </div>
+                                  <div className="text-[12px] text-neutral-300">
+                                    {s.label}
+                                  </div>
                                 </div>
-                                <div className="text-[12px] text-neutral-300">
-                                  {s.label}
-                                </div>
-                              </div>
-                            ))
-                          )}
+                              ))
+                            )}
                         </div>
                       </div>
 

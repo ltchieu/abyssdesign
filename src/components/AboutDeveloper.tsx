@@ -1,26 +1,17 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faCode,
-  faBolt,
   faLaptopCode,
-  faCircleCheck,
   faQuoteLeft,
   faServer,
-  faTerminal,
   faArrowRight,
   faCheck,
-  faRocket,
-  faShieldHalved,
   faCompassDrafting,
-  faMobileScreenButton
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faReact,
   faJs,
   faHtml5,
-  faCss3Alt,
-  faGitAlt
 } from '@fortawesome/free-brands-svg-icons';
 import { faCommentDots } from '@fortawesome/free-regular-svg-icons';
 import { DEVELOPER_DATA } from '../data/developerData';

@@ -32,6 +32,17 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
     setActiveImageIndex(0);
   }, [project]);
 
+  // Lock body scroll and prevent Lenis from scrolling background while modal is open
+  useEffect(() => {
+    if (project) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [project]);
+
   // Handle ESC key to close modal
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -43,8 +54,6 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
 
-  if (!project) return null;
-
   const handleOrderCustomPortfolio = () => {
     const zaloUrl = `${CONTACT_DATA.zaloUrl}`;
     window.open(zaloUrl, '_blank', 'noopener,noreferrer');
@@ -52,24 +61,31 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8 overflow-y-auto">
-        {/* Cinematic Backdrop Overlay */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={onClose}
-          className="fixed inset-0 bg-neutral-950/80 backdrop-blur-xl"
-        />
-
-        {/* Modal Container */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.94, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.94, y: 20 }}
-          transition={{ type: 'spring', damping: 28, stiffness: 280 }}
-          className="relative z-10 w-full max-w-4xl max-h-[92vh] bg-white rounded-[2rem] sm:rounded-[2.4rem] border border-neutral-200 shadow-2xl overflow-hidden flex flex-col my-auto"
+      {project && (
+        <div
+          data-lenis-prevent
+          onWheel={(e) => e.stopPropagation()}
+          onTouchMove={(e) => e.stopPropagation()}
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8 overflow-hidden"
         >
+          {/* Cinematic Backdrop Overlay */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="fixed inset-0 bg-neutral-950/80 backdrop-blur-xl"
+          />
+
+          {/* Modal Container */}
+          <motion.div
+            data-lenis-prevent
+            initial={{ opacity: 0, scale: 0.94, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.94, y: 20 }}
+            transition={{ type: 'spring', damping: 28, stiffness: 280 }}
+            className="relative z-10 w-full max-w-4xl max-h-[90vh] bg-white rounded-[2rem] sm:rounded-[2.4rem] border border-neutral-200 shadow-2xl overflow-hidden flex flex-col my-auto overscroll-contain"
+          >
           {/* Top Modal Header */}
           <div className="sticky top-0 z-20 px-6 sm:px-8 py-4 bg-white/90 backdrop-blur-md border-b border-neutral-100 flex items-center justify-between">
             <div className="flex items-center gap-2.5">
@@ -93,7 +109,10 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
           </div>
 
           {/* Modal Scrollable Body */}
-          <div className="overflow-y-auto px-6 sm:px-8 py-6 sm:py-8 space-y-8 flex-1">
+          <div
+            data-lenis-prevent
+            className="overflow-y-auto overscroll-contain px-6 sm:px-8 py-6 sm:py-8 space-y-8 flex-1"
+          >
             
             {/* Title & Tagline */}
             <div>
@@ -266,8 +285,9 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
             </button>
           </div>
 
-        </motion.div>
-      </div>
+          </motion.div>
+        </div>
+      )}
     </AnimatePresence>
   );
 };
