@@ -1,14 +1,14 @@
 export const HERO_DATA = {
-  badge: "ABYSS DESIGN • DỊCH VỤ PORTFOLIO CHUYÊN NGHIỆP",
-  headline: "Thiết Kế Portfolio Cá Nhân Chuyên Nghiệp",
-  highlightText: "Tạo Ấn Tượng Mạnh Mẽ",
-  subheadline: "Giúp bạn thể hiện trọn vẹn năng lực, khẳng định thương hiệu cá nhân và gây ấn tượng sâu sắc với nhà tuyển dụng hoặc khách hàng. Website hiện đại, chuẩn UX/UI, tối ưu tốc độ và hỗ trợ trọn gói từ A–Z.",
-  primaryCta: "Xem Bảng Giá & Gói Dịch Vụ",
-  secondaryCta: "Dự Án Portfolio Mẫu",
+  badge: "✨ Thiết Kế Portfolio Cá Nhân Chỉ Từ 500.000đ",
+  headlineLine1: "Năng lực của bạn là độc bản.",
+  headlineLine2: "Đừng để portfolio chỉ là một bản sao đại trà.",
+  subheadline: "Website cá nhân chỉn chu giúp bạn tự tin thể hiện năng lực và mở ra những cơ hội nghề nghiệp giá trị. Giao diện hiện đại, mượt mà trên điện thoại và máy tính, đồng hành tận tâm từ A–Z.",
+  primaryCta: "Xem Các Dự Án Mẫu",
+  secondaryCta: "Xem Bảng Giá Dịch Vụ",
   perks: [
-    { text: "Hoàn thành nhanh 3–7 ngày", icon: "clock" },
-    { text: "Có Demo trực tiếp trước bàn giao", icon: "display" },
-    { text: "Hỗ trợ Deploy Free 1 năm", icon: "shield" },
-    { text: "Chuẩn Responsive 100% Mobile & PC", icon: "mobile" }
+    { text: "Bàn giao trong 3–7 ngày", icon: "clock" },
+    { text: "Có Demo trực tiếp trước khi nhận", icon: "display" },
+    { text: "Hỗ trợ Deploy miễn phí 1 năm", icon: "shield" },
+    { text: "Hiển thị đẹp trên mọi thiết bị", icon: "mobile" }
   ]
 };

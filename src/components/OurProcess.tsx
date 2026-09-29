@@ -67,7 +67,7 @@ export const OurProcess: React.FC = () => {
           className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50/90 border border-blue-100 text-blue-700 text-xs font-semibold uppercase tracking-wider mb-4"
         >
           <FontAwesomeIcon icon={faBolt} className="text-sky-500" />
-          <span>Quy Trình 4 Bước Chuẩn Mực • Xen Kẽ Trực Quan</span>
+          <span>Quy Trình 4 Bước • Rõ Ràng & Yên Tâm</span>
         </motion.div>
 
         <motion.h2
@@ -79,7 +79,7 @@ export const OurProcess: React.FC = () => {
           className="text-[30px] sm:text-[38px] md:text-[44px] font-bold tracking-[-0.02em] text-[#111827] mb-4 leading-tight"
         >
           Quy Trình Triển Khai <br className="hidden sm:inline" />
-          <span className="text-hologram">Từ Ý Tưởng Đến Ra Mắt Toàn Cầu</span>
+          <span className="text-hologram">Tinh Gọn & Rõ Ràng Từng Bước</span>
         </motion.h2>
 
         <motion.p
@@ -89,7 +89,7 @@ export const OurProcess: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-[15px] sm:text-[17px] text-neutral-600 font-normal leading-relaxed max-w-2xl mx-auto"
         >
-          Từng giai đoạn đều có mốc xác nhận rõ ràng, hỗ trợ demo trước bàn giao và cam kết đồng hành kỹ thuật lâu dài.
+          Từng giai đoạn đều có mốc xác nhận rõ ràng, luôn có link demo chạy thử trực tiếp để bạn duyệt trước khi nhận bàn giao.
         </motion.p>
       </div>
 

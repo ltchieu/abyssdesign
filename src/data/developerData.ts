@@ -3,7 +3,7 @@ import { DeveloperInfo } from '../types';
 export const DEVELOPER_DATA: DeveloperInfo = {
   name: 'Nguyễn Thành Nam',
   role: 'Web Developer & UI/UX Specialist',
-  bio: 'Tôi là Web Developer chuyên làm portfolio và landing page hiện đại, tối ưu UX và hiệu suất. Sử dụng React, TypeScript, HTML/CSS và deploy trên Vercel, tôi giúp bạn tạo website đẹp, nhanh, chuẩn SEO. Tôi tập trung vào bố cục, tốc độ và chuyển đổi, giúp bạn gây ấn tượng với nhà tuyển dụng hoặc khách hàng.',
+  bio: 'Mình là lập trình viên chuyên xây dựng website portfolio cá nhân cho các bạn sinh viên, người đi làm và freelancer. Mình tin rằng một portfolio hiệu quả không cần quá phức tạp, mà phải làm nổi bật năng lực của bạn, tải nhanh như chớp và hiển thị chỉn chu trên mọi thiết bị. Mình luôn sẵn lòng đồng hành từng bước để bạn có được trang web thật sự ưng ý.',
   skills: [
     { name: 'React 19 / Next.js', category: 'Frontend' },
     { name: 'TypeScript', category: 'Language' },
@@ -15,15 +15,15 @@ export const DEVELOPER_DATA: DeveloperInfo = {
     { name: 'SEO Onpage & Schema', category: 'SEO' }
   ],
   metrics: [
-    { value: '100%', label: 'Đúng Tiến Độ', desc: 'Bàn giao đúng hẹn từ 3–7 ngày' },
-    { value: '99+', label: 'Google Lighthouse', desc: 'Tối ưu tốc độ tải tức thì' },
-    { value: '1 Năm', label: 'Hỗ Trợ Deploy Free', desc: 'Đồng hành vận hành ổn định' },
-    { value: '1-1', label: 'Tư Vấn Trực Tiếp', desc: 'Hỗ trợ demo và góp ý liên tục' }
+    { value: '100%', label: 'Toàn Quyền Sở Hữu', desc: 'Bàn giao mã nguồn sạch đầy đủ' },
+    { value: '1-1', label: 'Đồng Hành Chu Đáo', desc: 'Tư vấn và hỗ trợ chuẩn bị nội dung' },
+    { value: '< 1s', label: 'Tốc Độ Mở Trang', desc: 'Tải tức thì, không giật lag' },
+    { value: '0đ', label: 'Phí Phát Sinh', desc: 'Báo giá rõ ràng, không chi phí ẩn' }
   ],
   commitments: [
-    'Tập trung vào bố cục trực quan, tăng tỷ lệ chuyển đổi và gây ấn tượng mạnh từ 3 giây đầu tiên',
-    'Tối ưu chuẩn UX/UI công thái học trên 100% thiết bị di động & máy tính',
-    'Mã nguồn TypeScript sạch sẽ, dễ bảo trì và bàn giao trọn quyền sở hữu',
-    'Hỗ trợ cấu hình tên miền và đưa website lên Vercel hoàn toàn miễn phí'
+    'Bố cục trực quan, tập trung làm nổi bật những dự án và kỹ năng giá trị nhất của bạn',
+    'Tương thích hoàn hảo trên 100% thiết bị (điện thoại thông minh, máy tính bảng & PC)',
+    'Mã nguồn sạch sẽ, dễ dàng cập nhật thêm dự án mới bất kỳ lúc nào',
+    'Hướng dẫn sử dụng và hỗ trợ bạn đưa website lên Internet từ đầu đến cuối'
   ]
 };

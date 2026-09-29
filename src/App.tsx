@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { SmoothScrollProvider } from './components/SmoothScrollProvider';
-import { AbyssalLoader } from './components/AbyssalLoader';
+import { Preloader } from './components/Preloader';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { PricingPackages } from './components/PricingPackages';
-import { AboutDeveloper } from './components/AboutDeveloper';
-import { WhatYouReceive } from './components/WhatYouReceive';
 import { RecentWork } from './components/RecentWork';
+import { AboutDeveloper } from './components/AboutDeveloper';
 import { OurProcess } from './components/OurProcess';
+import { PricingPackages } from './components/PricingPackages';
 import { CtaBanner } from './components/CtaBanner';
 import { Footer } from './components/Footer';
 import { FloatingZalo } from './components/FloatingZalo';
@@ -42,22 +41,23 @@ export default function App() {
 
   return (
     <SmoothScrollProvider>
-      {/* Abyssal 3D Loader with Telemetry HUD & Seamless Threads Unfurl */}
+      {/* Seamless Wave Line Running & Fanning Preloader */}
       {isLoading && (
-        <AbyssalLoader
+        <Preloader
+          yRatio={0.68}
           onUnfurl={() => setIsUnfurled(true)}
           onComplete={() => setIsLoading(false)}
         />
       )}
 
-      {/* True Fixed Navigation Header - Anchored to Viewport with smooth reveal */}
+      {/* True Fixed Navigation Header */}
       <Header isVisible={isUnfurled} />
 
-      {/* Main Website Wrapper with continuous Threads WebGL background */}
-      <div className="min-h-screen bg-[#fafafa] text-[#111827] flex flex-col font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[#0284c7] selection:text-white">
+      {/* Main Website Wrapper with overflow-x-clip preventing any horizontal scroll */}
+      <div className="min-h-screen overflow-x-clip bg-[#fafafa] text-[#111827] flex flex-col font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[#0284c7] selection:text-white">
         {/* Main Content Sections */}
-        <main className="flex-1">
-          {/* 1. Hero Section - holds the live Threads WebGL canvas */}
+        <main className="flex-1 overflow-x-clip">
+          {/* 1. Hero Section - holds identical WaveRibbon with seamless mask intro */}
           <Hero
             isLoaded={isUnfurled}
             onStartProject={handleOpenZalo}
@@ -71,22 +71,19 @@ export default function App() {
               isUnfurled ? 'opacity-100' : 'opacity-0 pointer-events-none'
             }`}
           >
-            {/* 2. About the Web Developer Section */}
-            <AboutDeveloper />
-
-            {/* 3. Recent Work Showcase */}
+            {/* 2. Showcase / Recent Work 3D Card Stack (Bằng chứng đặt lên đầu tiên!) */}
             <RecentWork />
 
-            {/* 4. What You'll Receive */}
-            <WhatYouReceive />
+            {/* 3. Về Tôi & Điểm Khác Biệt (Gộp Bio, Tech Stack, Google Lighthouse 99+ Speed Demo) */}
+            <AboutDeveloper />
 
-            {/* 5. Alternating 4-Step Process Pipeline */}
+            {/* 4. Quy Trình 4 Bước Triển Khai (Nhấn mạnh bước xem trước Demo thực tế) */}
             <OurProcess />
 
-            {/* 6. Transparent Pricing Packages */}
+            {/* 5. Bảng Giá Minh Bạch 2 Gói (Deduplicated, ghi rõ timeline 3-7 ngày & 1 năm deploy) */}
             <PricingPackages />
 
-            {/* 7. Ready to Build CTA Banner */}
+            {/* 6. Sẵn Sàng Bắt Đầu CTA Banner (Với motif dải sóng kết thúc hài hòa) */}
             <CtaBanner />
           </div>
         </main>
@@ -112,3 +109,4 @@ export default function App() {
     </SmoothScrollProvider>
   );
 }
+

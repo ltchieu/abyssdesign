@@ -29,21 +29,20 @@ export const CtaBanner: React.FC = () => {
           {/* Tag */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-sky-400 text-xs font-semibold uppercase tracking-wider mb-6">
             <FontAwesomeIcon icon={faShieldHalved} className="text-xs" />
-            <span>Sẵn Sàng Nâng Tầm Thương Hiệu Cá Nhân</span>
+            <span>Sẵn Sàng Bắt Đầu Dự Án</span>
           </div>
 
           {/* Headline */}
           <h2
             id="cta-banner-title"
-            className="text-[28px] sm:text-[38px] md:text-[46px] font-extrabold tracking-[-0.03em] text-white leading-[1.2] mb-6"
+            className="text-[28px] sm:text-[38px] md:text-[44px] font-extrabold tracking-[-0.03em] text-white leading-[1.25] mb-5"
           >
-            Năng lực của bạn là <span className="text-hologram">độc bản</span>.
-            <br className="hidden sm:inline" />
-            Đừng để portfolio của bạn trông giống một <span className="text-neutral-400 font-normal italic">bản sao đại trà</span>.
+            Sẵn Sàng Để Portfolio Của Bạn <br className="hidden sm:inline" />
+            Kể Câu Chuyện <span className="text-hologram">Thuyết Phục Nhất?</span>
           </h2>
 
           <p className="text-neutral-300 text-sm sm:text-base max-w-xl mb-9 leading-relaxed">
-            Chỉ mất từ 3–7 ngày để sở hữu website portfolio ấn tượng, có demo xem trước trực tiếp và được hỗ trợ deploy miễn phí 1 năm.
+            Đừng ngần ngại nhắn tin trao đổi ý tưởng. Mình luôn sẵn lòng lắng nghe, tư vấn định hướng bố cục và giải đáp mọi thắc mắc của bạn hoàn toàn miễn phí.
           </p>
 
           {/* Action Buttons */}
@@ -56,12 +55,12 @@ export const CtaBanner: React.FC = () => {
               className="cursor-pointer group btn-hologram text-[15px] font-semibold px-8 py-3.5 rounded-full flex items-center justify-center gap-2.5 shadow-lg"
             >
               <FontAwesomeIcon icon={faCommentDots} className="text-base" />
-              <span>Liên Hệ Zalo: {CONTACT_DATA.formattedPhone}</span>
+              <span>Nhắn Tin Zalo: {CONTACT_DATA.formattedPhone}</span>
               <FontAwesomeIcon icon={faArrowRight} className="text-xs transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </div>
 
-          <p className="mt-6 text-xs text-neutral-500 font-mono">
+          <p className="mt-6 text-xs text-neutral-400 font-mono">
             {CONTACT_DATA.consultationNote}
           </p>
         </div>

@@ -186,7 +186,7 @@ export const PricingPackages: React.FC = () => {
                       : 'bg-slate-900 hover:bg-slate-800 text-white hover:shadow-lg'
                   }`}
                 >
-                  <span>{pkg.ctaText} Qua Zalo</span>
+                  <span>{pkg.ctaText}</span>
                   <FontAwesomeIcon icon={faArrowRight} className="text-xs transition-transform group-hover:translate-x-1" />
                 </a>
 
@@ -196,7 +196,7 @@ export const PricingPackages: React.FC = () => {
                   }`}
                 >
                   <FontAwesomeIcon icon={faShieldHalved} className="text-emerald-500" />
-                  <span>Có demo chạy thử trước khi bàn giao • Deploy Vercel miễn phí</span>
+                  <span>Tặng kèm 1 năm lưu trữ web • Hỗ trợ kỹ thuật chu đáo</span>
                 </div>
               </div>
             </div>

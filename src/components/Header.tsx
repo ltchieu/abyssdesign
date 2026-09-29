@@ -11,26 +11,29 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ isVisible = true }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('about');
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      const sections = ['about', 'portfolio', 'process', 'pricing'];
+      // New section ordering: Showcase (portfolio) -> About & commitments (about) -> Process (process) -> Pricing (pricing)
+      const sections = ['portfolio', 'about', 'process', 'pricing'];
       const scrollPosition = window.scrollY + 280;
 
+      let current = '';
       for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
           const top = el.offsetTop;
           const height = el.offsetHeight;
           if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(section);
+            current = section;
             break;
           }
         }
       }
+      setActiveSection(current);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -39,8 +42,8 @@ export const Header: React.FC<HeaderProps> = ({ isVisible = true }) => {
   }, []);
 
   const navItems: PillNavItem[] = [
-    { label: 'Về Tôi', href: '#about' },
     { label: 'Dự Án', href: '#portfolio' },
+    { label: 'Về Tôi', href: '#about' },
     { label: 'Quy Trình', href: '#process' },
     { label: 'Bảng Giá', href: '#pricing' },
   ];

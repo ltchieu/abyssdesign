@@ -8,5 +8,5 @@ export const FOOTER_LINKS = {
     { label: 'LinkedIn', href: 'https://linkedin.com', isExternal: true },
     { label: 'Behance', href: 'https://behance.net', isExternal: true }
   ],
-  copyright: '© 2024 ABYSS Design. Thiết kế danh mục cho tương lai.'
+  copyright: `© ${new Date().getFullYear()} ABYSS Design. Thiết kế website portfolio cá nhân chỉn chu & tận tâm.`
 };
